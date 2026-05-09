@@ -60,11 +60,11 @@ form.reset();
           <nav className="hidden items-center gap-8 text-sm text-zinc-300 md:flex">
             <a href="#servicios" className="hover:text-white">Servicios</a>
             <a href="#nosotros" className="hover:text-white">Nosotros</a>
-            <a href="#contacto" className="hover:text-white">Contacto</a>
+            <a href="#agenda" className="hover:text-white">Contacto</a>
           </nav>
 
-          <a href="#contacto" className="hidden rounded-xl bg-pink-600 px-5 py-3 text-sm font-bold shadow-[0_0_30px_rgba(255,0,120,0.35)] transition hover:bg-pink-500 md:block">
-            Solicitar solución
+          <a href="#agenda" className="hidden rounded-xl bg-pink-600 px-5 py-3 text-sm font-bold shadow-[0_0_30px_rgba(255,0,120,0.35)] transition hover:bg-pink-500 md:block">
+            Agendar reunión
           </a>
 
           <Menu className="md:hidden" />
@@ -93,8 +93,8 @@ form.reset();
         </p>
 
         <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <a href="#contacto" className="flex items-center gap-2 rounded-2xl bg-pink-600 px-8 py-4 font-semibold shadow-[0_0_45px_rgba(255,0,120,0.45)] transition hover:bg-pink-500">
-            Solicitar solución <ArrowRight size={18} />
+          <a href="#agenda" className="flex items-center gap-2 rounded-2xl bg-pink-600 px-8 py-4 font-semibold shadow-[0_0_45px_rgba(255,0,120,0.45)] transition hover:bg-pink-500">
+            Agendar reunión <ArrowRight size={18} />
           </a>
           <a href="#servicios" className="rounded-2xl border border-white/10 bg-white/5 px-8 py-4 font-semibold transition hover:bg-white/10">
             Ver servicios
@@ -195,5 +195,6 @@ form.reset();
     </main>
   );
 }
+
 
 
