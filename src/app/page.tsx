@@ -28,8 +28,15 @@ export default function Home() {
     });
 
     if (res.ok) {
-      setStatus("Mensaje enviado correctamente. Te contactaremos pronto.");
-      form.reset();
+      const nombre = String(data.name || "");
+const servicio = String(data.service || "");
+const mensaje = String(data.message || "");
+const whatsappText = encodeURIComponent(
+  `Hola EMESTÉ, soy ${nombre}. Necesito información sobre ${servicio}. ${mensaje}`
+);
+window.open(`https://wa.me/56982328639?text=${whatsappText}`, "_blank");
+setStatus("Mensaje enviado correctamente. También abrimos WhatsApp para continuar la conversación.");
+form.reset();
     } else {
       setStatus("No se pudo enviar. Intenta nuevamente.");
     }
@@ -177,3 +184,4 @@ export default function Home() {
     </main>
   );
 }
+
