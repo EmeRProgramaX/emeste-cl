@@ -141,7 +141,18 @@ form.reset();
         </div>
       </section>
 
-      <section id="contacto" className="relative z-10 px-6 py-28">
+      <section id="agenda" className="relative z-10 px-6 py-28">
+  <div className="mx-auto max-w-5xl rounded-[2rem] border border-pink-500/20 bg-gradient-to-br from-pink-500/10 to-white/[0.04] p-10 text-center shadow-[0_0_70px_rgba(255,0,120,0.18)]">
+    <h2 className="text-3xl font-black md:text-5xl">Agenda una reunión con EMESTÉ</h2>
+    <p className="mx-auto mt-5 max-w-2xl text-zinc-400">
+      Reserva una reunión para analizar tu negocio, tus necesidades y crear una solución tecnológica real.
+    </p>
+    <a href="https://calendar.app.google/KRBdfycwBGAwB3gT9" target="_blank" className="mt-8 inline-block rounded-2xl bg-white px-8 py-4 font-black text-black transition hover:bg-zinc-200">
+      Agendar reunión
+    </a>
+  </div>
+</section>
+<section id="contacto" className="relative z-10 px-6 py-28">
         <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-2">
           <div className="rounded-[2rem] border border-pink-500/20 bg-gradient-to-br from-pink-500/10 to-white/[0.04] p-10">
             <h2 className="text-3xl font-black md:text-5xl">Solicita una solución para tu negocio</h2>
@@ -184,4 +195,5 @@ form.reset();
     </main>
   );
 }
+
 
