@@ -1,38 +1,60 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "EMESTÉ | Software, Automatización e Inteligencia Artificial",
+  metadataBase: new URL("https://www.emeste.cl"),
+  title: {
+    default: "EMESTÉ.CL | Software, DJ y Mentorías",
+    template: "%s | EMESTÉ.CL",
+  },
   description:
-    "EMESTÉ desarrolla páginas web premium, software empresarial, automatizaciones e inteligencia artificial para impulsar empresas.",
+    "EMESTÉ.CL une desarrollo de software, páginas web, automatizaciones, sistemas empresariales, carrera DJ y mentorías de crecimiento personal desde Chile.",
   keywords: [
     "EMESTÉ",
-    "emeste.cl",
-    "desarrollo web",
-    "software",
-    "automatización",
-    "inteligencia artificial",
-    "sistemas empresariales",
-    "landing pages",
+    "EMESTÉ.CL",
+    "Emerson Gil",
+    "desarrollo web Chile",
+    "software a medida Chile",
+    "automatización de negocios",
+    "sistemas POS",
+    "consultoría tecnológica",
+    "DJ Emesté",
+    "mentorías de crecimiento personal",
+    "Emesté Mente Diferente",
   ],
-  authors: [{ name: "EMESTÉ Technologies" }],
-  creator: "EMESTÉ Technologies",
+  authors: [{ name: "Emerson Gil" }],
+  creator: "Emerson Gil",
+  publisher: "EMESTÉ.CL",
+  alternates: {
+    canonical: "https://www.emeste.cl",
+  },
   openGraph: {
-    title: "EMESTÉ Technologies",
+    title: "EMESTÉ.CL | Software, DJ y Mentorías",
     description:
-      "Tecnología creada para crecer. Desarrollo web, software, automatización e inteligencia artificial.",
-    url: "https://emeste.cl",
-    siteName: "EMESTÉ",
+      "Tecnología, música y conciencia para construir negocios, experiencias y vidas con propósito.",
+    url: "https://www.emeste.cl",
+    siteName: "EMESTÉ.CL",
     images: [
       {
         url: "/logo-emeste.png",
         width: 1200,
         height: 1200,
-        alt: "Logo oficial EMESTÉ",
+        alt: "Logo oficial EMESTÉ.CL",
       },
     ],
     locale: "es_CL",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "EMESTÉ.CL | Software, DJ y Mentorías",
+    description:
+      "Software, páginas web, automatización, música y mentorías creadas por Emerson Gil.",
+    images: ["/logo-emeste.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
