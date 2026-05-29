@@ -1,34 +1,148 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
 :root {
-  --background: #000000;
+  --background: #020003;
   --foreground: #ffffff;
+  --matrix: #00ff88;
+  --pink: #ec008c;
+  --red: #ff1744;
 }
 
 html {
   scroll-behavior: smooth;
+  background: var(--background);
 }
 
 body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-::selection {
-  background: #ec008c;
-  color: #ffffff;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -4;
+  background: radial-gradient(circle at top left, rgba(236,0,140,.22), transparent 34%), radial-gradient(circle at bottom right, rgba(0,255,136,.14), transparent 34%), #020003;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
+a { color: inherit; text-decoration: none; }
+
+::selection { background: #ec008c; color: #ffffff; }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: #ec008c; border-radius: 999px; }
+
+.matrix-shell {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: radial-gradient(circle at center, rgba(236,0,140,.14), transparent 44%);
 }
 
-::-webkit-scrollbar-track {
-  background: #050505;
+.matrix-column {
+  position: absolute;
+  top: -38vh;
+  width: 22px;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  color: rgba(0,255,136,.56);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .22em;
+  text-shadow: 0 0 8px rgba(0,255,136,.9), 0 0 22px rgba(236,0,140,.45);
+  animation-name: matrixRain;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: .78;
+  transform: translateZ(0);
 }
 
-::-webkit-scrollbar-thumb {
-  background: #ec008c;
-  border-radius: 999px;
+.matrix-depth {
+  position: absolute;
+  inset: -12%;
+  background-image: linear-gradient(to right, rgba(0,255,136,.09) 1px, transparent 1px), linear-gradient(to bottom, rgba(236,0,140,.08) 1px, transparent 1px);
+  background-size: 72px 72px;
+  transform: perspective(900px) rotateX(62deg) translateY(18%);
+  transform-origin: center bottom;
+  filter: drop-shadow(0 0 18px rgba(236,0,140,.32));
+}
+
+.matrix-depth-two {
+  opacity: .42;
+  background-size: 36px 36px;
+  animation: matrixGrid 10s linear infinite;
+}
+
+.matrix-depth-one {
+  opacity: .28;
+  animation: matrixGrid 18s linear infinite reverse;
+}
+
+.matrix-scan {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0,255,136,.10), transparent);
+  animation: matrixScan 4.5s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+.matrix-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0, rgba(0,0,0,.22) 52%, rgba(0,0,0,.86) 100%);
+}
+
+@keyframes matrixRain {
+  from { transform: translate3d(0,-45vh,0); }
+  to { transform: translate3d(0,150vh,0); }
+}
+
+@keyframes matrixGrid {
+  from { background-position: 0 0; }
+  to { background-position: 0 144px; }
+}
+
+@keyframes matrixScan {
+  0%, 100% { transform: translateY(-100%); opacity: 0; }
+  20%, 70% { opacity: .8; }
+  50% { transform: translateY(100%); }
+}
+
+.glass-pro {
+  border: 1px solid rgba(255,255,255,.14);
+  background: linear-gradient(135deg, rgba(255,255,255,.11), rgba(255,255,255,.035));
+  backdrop-filter: blur(22px) saturate(160%);
+  box-shadow: 0 24px 80px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.18), 0 0 40px rgba(236,0,140,.18);
+}
+
+.glow-3d {
+  transform-style: preserve-3d;
+  box-shadow: 0 26px 80px rgba(0,0,0,.44), 0 0 42px rgba(236,0,140,.30), 0 0 26px rgba(0,255,136,.12);
+  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+
+.glow-3d:hover {
+  transform: translateY(-6px) rotateX(2deg) rotateY(-2deg);
+  border-color: rgba(0,255,136,.34);
+  box-shadow: 0 32px 95px rgba(0,0,0,.5), 0 0 58px rgba(236,0,140,.42), 0 0 38px rgba(0,255,136,.20);
+}
+
+@media (max-width: 640px) {
+  .matrix-column { font-size: 10px; opacity: .42; }
+  .matrix-depth { background-size: 48px 48px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .matrix-column, .matrix-depth, .matrix-scan { animation: none; }
 }
