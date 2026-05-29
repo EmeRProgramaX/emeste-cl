@@ -1,27 +1,62 @@
-﻿# EMESTÉ.CL
+# EMESTÉ.CL
 
-Sitio web oficial de EMESTÉ Technologies.
+Sitio web oficial de EMESTÉ.CL, ecosistema creado por Emerson Gil para unir software, programación, consultoría tecnológica, carrera DJ y mentorías.
 
-## Servicios
+## Divisiones
 
-- Desarrollo Web Premium
-- Automatización Inteligente
-- Software Empresarial
-- Integración con Inteligencia Artificial
+### EMESTÉ Software
+- Desarrollo web premium
+- Landing pages comerciales
+- Software a medida
+- Sistemas POS y ERP
+- Automatizaciones
+- Integraciones con IA
+- Consultoría tecnológica
+
+### EMESTÉ DJ
+- Booking para eventos
+- Página artística
+- Biografía profesional
+- Press kit
+- Instagram y videos
+
+### EMESTÉ Mentorías
+- Crecimiento personal
+- Vida con propósito
+- Respeto, disciplina y conciencia
+- Contenidos educativos
+- Canal: Emesté Mente Diferente
+
+## Rutas principales
+
+- `/` Inicio
+- `/software` Servicios tecnológicos
+- `/dj` EMESTÉ DJ
+- `/mentorias` EMESTÉ Mentorías
+- `/actualizaciones` Novedades y contenidos
+- `/contacto` Contacto directo
+
+## Stack técnico
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Lucide React
+- Nodemailer
+- Vercel
+- GitHub
 
 ## Comandos principales
 
-### Iniciar en desarrollo
+```bash
 pnpm dev
-
-### Construir versión final
 pnpm build
-
-### Ver versión final local
 pnpm start
+pnpm lint
+```
 
-## Marca
+## Estrategia
 
-Dominio oficial: https://emeste.cl  
-Correo: contacto@emeste.cl  
-Eslogan: Tecnología creada para crecer.
+La prioridad comercial es vender software, páginas web y automatizaciones para generar liquidez. Las líneas DJ y Mentorías se integran como divisiones de marca para ampliar autoridad, comunidad y nuevas fuentes de ingresos.
