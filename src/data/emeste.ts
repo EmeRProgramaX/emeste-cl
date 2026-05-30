@@ -76,28 +76,28 @@ export const softwareServices = [
 export const commercialPackages = [
   {
     name: "Landing Express",
-    price: "Desde $120.000 CLP",
+    price: "Cotización personalizada",
     description:
       "Página de venta rápida para emprendedores y negocios que necesitan presencia profesional inmediata.",
     items: ["Diseño responsive", "Botón WhatsApp", "Formulario o agenda", "SEO base"],
   },
   {
     name: "Web Profesional",
-    price: "Desde $250.000 CLP",
+    price: "Cotización personalizada",
     description:
       "Sitio corporativo elegante para vender servicios, mostrar confianza y captar clientes constantemente.",
     items: ["Hasta 5 secciones", "Diseño premium", "Integración redes", "Optimización comercial"],
   },
   {
     name: "Software a Medida",
-    price: "Cotización por proyecto",
+    price: "Cotización personalizada",
     description:
       "Sistema personalizado para controlar procesos, ventas, inventario, clientes, paneles y operación.",
     items: ["Levantamiento técnico", "Arquitectura escalable", "Panel administrativo", "Soporte inicial"],
   },
   {
     name: "Automatización",
-    price: "Desde $150.000 CLP",
+    price: "Cotización personalizada",
     description:
       "Automatización de tareas repetitivas para ahorrar tiempo, responder mejor y ordenar el negocio.",
     items: ["Flujos automáticos", "Alertas", "Integraciones", "Documentación"],
