@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { TrackingScripts } from "@/components/TrackingScripts";
 import "./globals.css";
 import "./responsive.css";
 
@@ -74,7 +75,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es-CL">
-      <body>{children}</body>
+      <body>
+        <TrackingScripts />
+        {children}
+      </body>
     </html>
   );
 }
