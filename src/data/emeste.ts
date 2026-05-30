@@ -10,6 +10,7 @@ export const siteConfig = {
   whatsapp: "56982328639",
   whatsappDisplay: "+56 9 8232 8639",
   instagramUrl: "https://www.instagram.com/dj___emerson/",
+  instagramEmesteUrl: "https://www.instagram.com/emeste.cl/",
   calendarUrl: "https://calendar.app.google/KRBdfycwBGAwB3gT9",
   youtubeName: "Emesté Mente Diferente",
 };
@@ -18,6 +19,7 @@ export const navItems = [
   { label: "Inicio", href: "/#inicio" },
   { label: "Software", href: "/software" },
   { label: "DJ", href: "/dj" },
+  { label: "Press Kit", href: "/presskit" },
   { label: "Mentorías", href: "/mentorias" },
   { label: "Actualizaciones", href: "/actualizaciones" },
   { label: "Contacto", href: "/contacto" },
@@ -35,7 +37,7 @@ export const businessLines = [
   {
     eyebrow: "Marca artística",
     title: "EMESTÉ DJ",
-    href: "/dj",
+    href: "/presskit",
     description:
       "Música, energía y conexión real para eventos privados, empresas, clubes y experiencias memorables.",
     cta: "Ver press kit",
@@ -117,7 +119,7 @@ export const latestUpdates = [
     title: "Nuevo press kit artístico",
     description:
       "La línea EMESTÉ DJ tendrá una página dedicada para booking, biografía, sesiones, videos y material profesional.",
-    href: "/dj",
+    href: "/presskit",
   },
   {
     tag: "Mentorías",
