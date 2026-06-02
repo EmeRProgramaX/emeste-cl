@@ -4,23 +4,24 @@ export const siteConfig = {
   legalName: "EMESTÉ Technologies",
   founder: "Emerson Gil",
   brandCredit: "Software creado por Emerson Gil",
-  tagline: "Tecnología, música y conciencia para crecer con propósito.",
+  tagline: "Tecnología premium para que tu negocio venda más y trabaje mejor.",
   domain: "https://www.emeste.cl",
   email: "emeste@emeste.cl",
   whatsapp: "56982328639",
   whatsappDisplay: "+56 9 8232 8639",
   instagramUrl: "https://www.instagram.com/dj___emerson/",
+  instagramEmesteUrl: "https://www.instagram.com/emeste.cl/",
   calendarUrl: "https://calendar.app.google/KRBdfycwBGAwB3gT9",
   youtubeName: "Emesté Mente Diferente",
 };
 
 export const navItems = [
   { label: "Inicio", href: "/#inicio" },
-  { label: "Software", href: "/software" },
-  { label: "DJ", href: "/dj" },
-  { label: "Mentorías", href: "/mentorias" },
-  { label: "Actualizaciones", href: "/actualizaciones" },
-  { label: "Contacto", href: "/contacto" },
+  { label: "Servicios", href: "/#servicios" },
+  { label: "Caso real", href: "/#caso-real" },
+  { label: "Planes", href: "/#planes" },
+  { label: "Proceso", href: "/#proceso" },
+  { label: "Contacto", href: "/#contacto" },
 ];
 
 export const businessLines = [
@@ -76,31 +77,24 @@ export const softwareServices = [
 export const commercialPackages = [
   {
     name: "Landing Express",
-    price: "Desde $120.000 CLP",
+    price: "Desde $220.000 CLP",
     description:
-      "Página de venta rápida para emprendedores y negocios que necesitan presencia profesional inmediata.",
-    items: ["Diseño responsive", "Botón WhatsApp", "Formulario o agenda", "SEO base"],
+      "Para negocios que necesitan presencia profesional inmediata y contacto directo.",
+    items: ["Diseño responsive", "WhatsApp e Instagram", "SEO base", "Publicación"],
   },
   {
     name: "Web Profesional",
-    price: "Desde $250.000 CLP",
+    price: "Desde $350.000 CLP",
     description:
-      "Sitio corporativo elegante para vender servicios, mostrar confianza y captar clientes constantemente.",
-    items: ["Hasta 5 secciones", "Diseño premium", "Integración redes", "Optimización comercial"],
+      "Para empresas que necesitan más confianza, secciones comerciales y mejor imagen.",
+    items: ["Secciones corporativas", "Diseño premium", "Formulario o agenda", "Optimización comercial"],
   },
   {
-    name: "Software a Medida",
-    price: "Cotización por proyecto",
+    name: "Software / Automatización",
+    price: "Desde $550.000 CLP",
     description:
-      "Sistema personalizado para controlar procesos, ventas, inventario, clientes, paneles y operación.",
-    items: ["Levantamiento técnico", "Arquitectura escalable", "Panel administrativo", "Soporte inicial"],
-  },
-  {
-    name: "Automatización",
-    price: "Desde $150.000 CLP",
-    description:
-      "Automatización de tareas repetitivas para ahorrar tiempo, responder mejor y ordenar el negocio.",
-    items: ["Flujos automáticos", "Alertas", "Integraciones", "Documentación"],
+      "Para negocios que necesitan ordenar procesos, ventas, reservas o información interna.",
+    items: ["Diagnóstico técnico", "Arquitectura escalable", "Panel o flujo interno", "Soporte inicial"],
   },
 ];
 

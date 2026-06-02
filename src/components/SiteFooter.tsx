@@ -7,7 +7,8 @@ export function SiteFooter() {
         <div>
           <p className="text-lg font-black tracking-[0.2em] text-white">EMESTÉ.CL</p>
           <p className="mt-4 max-w-xl leading-relaxed">
-            Tecnología, música y conciencia para construir negocios, experiencias y vidas con propósito.
+            Tecnología premium, software a medida, páginas web y automatizaciones para negocios que necesitan vender y
+            operar mejor.
           </p>
           <p className="mt-5 font-semibold text-zinc-300">{siteConfig.brandCredit}</p>
         </div>
@@ -34,6 +35,9 @@ export function SiteFooter() {
             </a>
             <a href={siteConfig.calendarUrl} target="_blank" rel="noreferrer" className="transition hover:text-white">
               Agenda una asesoría gratis
+            </a>
+            <a href={siteConfig.instagramEmesteUrl} target="_blank" rel="noreferrer" className="transition hover:text-white">
+              Instagram EMESTÉ
             </a>
           </div>
         </div>

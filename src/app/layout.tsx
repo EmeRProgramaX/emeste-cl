@@ -12,23 +12,22 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.emeste.cl"),
   title: {
-    default: "EMESTÉ.CL | Software, DJ y Mentorías",
+    default: "EMESTÉ.CL | Páginas web, software y automatización en Chile",
     template: "%s | EMESTÉ.CL",
   },
   description:
-    "EMESTÉ.CL une desarrollo de software, páginas web, automatizaciones, sistemas empresariales, carrera DJ y mentorías de crecimiento personal desde Chile.",
+    "EMESTÉ.CL crea páginas web, landing pages, software a medida, automatizaciones, POS y soporte informático para empresas, emprendedores y profesionales en Chile.",
   keywords: [
     "EMESTÉ",
     "EMESTÉ.CL",
     "Emerson Gil",
     "desarrollo web Chile",
+    "landing pages Chile",
     "software a medida Chile",
     "automatización de negocios",
     "sistemas POS",
+    "soporte informático",
     "consultoría tecnológica",
-    "DJ Emesté",
-    "mentorías de crecimiento personal",
-    "Emesté Mente Diferente",
   ],
   authors: [{ name: "Emerson Gil" }],
   creator: "Emerson Gil",
@@ -37,9 +36,9 @@ export const metadata: Metadata = {
     canonical: "https://www.emeste.cl",
   },
   openGraph: {
-    title: "EMESTÉ.CL | Software, DJ y Mentorías",
+    title: "EMESTÉ.CL | Tecnología premium para vender y operar mejor",
     description:
-      "Tecnología, música y conciencia para construir negocios, experiencias y vidas con propósito.",
+      "Páginas web, landing pages, sistemas, automatizaciones, POS y soporte informático con diseño profesional y enfoque comercial.",
     url: "https://www.emeste.cl",
     siteName: "EMESTÉ.CL",
     images: [
@@ -55,9 +54,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "EMESTÉ.CL | Software, DJ y Mentorías",
+    title: "EMESTÉ.CL | Páginas web, software y automatización",
     description:
-      "Software, páginas web, automatización, música y mentorías creadas por Emerson Gil.",
+      "Soluciones tecnológicas profesionales para negocios que necesitan vender más y trabajar mejor.",
     images: ["/logo-emeste.png"],
   },
   robots: {
