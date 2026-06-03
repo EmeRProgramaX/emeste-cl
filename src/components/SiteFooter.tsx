@@ -33,7 +33,7 @@ export function SiteFooter() {
               {siteConfig.whatsappDisplay}
             </a>
             <a href={siteConfig.calendarUrl} target="_blank" rel="noreferrer" className="transition hover:text-white">
-              Agenda una asesoría gratis
+              Hablemos de tu proyecto
             </a>
             <a href={siteConfig.instagramEmesteUrl} target="_blank" rel="noreferrer" className="transition hover:text-white">
               Instagram EMESTÉ
@@ -51,3 +51,4 @@ export function SiteFooter() {
     </footer>
   );
 }
+
