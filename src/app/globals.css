@@ -146,3 +146,67 @@ a { color: inherit; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   .matrix-column, .matrix-depth, .matrix-scan { animation: none; }
 }
+
+/* EMESTÉ premium interaction layer */
+.title-3d {
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.16),
+    0 2px 0 rgba(236,0,140,.20),
+    0 14px 34px rgba(0,0,0,.70),
+    0 0 42px rgba(236,0,140,.32);
+  transform: translateZ(0);
+}
+
+.emeste-button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.emeste-button::before {
+  content: "";
+  position: absolute;
+  inset: -60%;
+  z-index: -1;
+  background: conic-gradient(from 180deg, transparent, rgba(255,255,255,.40), rgba(236,0,140,.60), transparent);
+  opacity: 0;
+  transform: rotate(0deg);
+  transition: opacity .35s ease;
+}
+
+.emeste-button:hover::before {
+  opacity: 1;
+  animation: emesteSpin 1.8s linear infinite;
+}
+
+.emeste-button:hover {
+  transform: translateY(-4px) scale(1.025) perspective(900px) rotateX(3deg);
+}
+
+.group:hover,
+.glow-3d:hover,
+article:hover {
+  transform: translateY(-8px) perspective(900px) rotateX(2deg) rotateY(-2deg);
+  box-shadow:
+    0 30px 90px rgba(0,0,0,.55),
+    0 0 45px rgba(236,0,140,.30),
+    inset 0 1px 0 rgba(255,255,255,.18);
+}
+
+@keyframes emesteSpin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .emeste-button:hover,
+  .group:hover,
+  .glow-3d:hover,
+  article:hover {
+    transform: none;
+  }
+
+  .emeste-button:hover::before {
+    animation: none;
+  }
+}
