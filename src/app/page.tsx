@@ -1,64 +1,302 @@
-import { ArrowRight, CalendarCheck } from "lucide-react";
+import {
+  ArrowRight,
+  BadgeCheck,
+  CalendarCheck,
+  Check,
+  CircleDollarSign,
+  Code2,
+  Cpu,
+  Gauge,
+  Headphones,
+  Layers3,
+  MessageCircle,
+  MonitorSmartphone,
+  ShieldCheck,
+  Sparkles,
+  Workflow,
+} from "lucide-react";
 import { FloatingActions } from "@/components/FloatingActions";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { buildWhatsappUrl, businessLines, siteConfig, softwareServices } from "@/data/emeste";
+import { buildWhatsappUrl, commercialPackages, siteConfig } from "@/data/emeste";
+
+const heroSeals = ["Responsive", "WhatsApp + Instagram", "SEO base", "Publicación"];
+
+const services = [
+  {
+    icon: MonitorSmartphone,
+    title: "Páginas web profesionales",
+    description:
+      "Sitios modernos, rápidos y responsivos para que tu negocio se vea serio, confiable y preparado para recibir clientes.",
+  },
+  {
+    icon: Gauge,
+    title: "Landing pages de venta",
+    description:
+      "Páginas enfocadas en conversión con WhatsApp, Instagram, formulario, agenda y una oferta clara para captar contactos.",
+  },
+  {
+    icon: Code2,
+    title: "Software a medida",
+    description:
+      "Sistemas para ventas, inventario, reservas, reportes, clientes, paneles administrativos y operación diaria.",
+  },
+  {
+    icon: Workflow,
+    title: "Automatización inteligente",
+    description:
+      "Flujos conectados con formularios, correos, WhatsApp, agenda, reportes y tareas repetitivas para ahorrar tiempo.",
+  },
+  {
+    icon: CircleDollarSign,
+    title: "POS y sistemas de venta",
+    description:
+      "Soluciones para caja, comandas, pedidos, ventas, control operativo y trazabilidad para negocios y restaurantes.",
+  },
+  {
+    icon: Headphones,
+    title: "Soporte informático",
+    description:
+      "Configuración, instalación, respaldo, mantención, seguridad básica y asistencia técnica para operar sin interrupciones.",
+  },
+];
+
+const caseIndicators = ["Sistema real entregado", "Cliente satisfecho", "Flujo comercial ordenado", "Base para escalar"];
+
+const processSteps = ["Diagnóstico", "Propuesta clara", "Diseño UI/UX", "Desarrollo", "Revisión", "Publicación", "Soporte"];
 
 export default function Home() {
-  const quoteUrl = buildWhatsappUrl("Hola EMESTÉ, quiero cotizar software, web o automatización para mi negocio.");
+  const quoteUrl = buildWhatsappUrl(
+    "Hola EMESTÉ, quiero cotizar una página web, software o automatización para mi negocio.",
+  );
+  const caseUrl = buildWhatsappUrl(
+    "Hola EMESTÉ, vi el caso real de software de ventas y quiero una solución similar para mi negocio.",
+  );
+  const finalWhatsappUrl = buildWhatsappUrl(
+    "Hola EMESTÉ, quiero revisar qué solución tecnológica conviene para mi negocio.",
+  );
 
   return (
-    <main id="inicio" className="relative min-h-screen overflow-hidden bg-black text-white">
-      <div className="fixed inset-0 bg-pink-950/30" />
+    <main id="inicio" className="relative min-h-screen overflow-hidden bg-[#030104] text-white">
+      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_20%_12%,rgba(236,0,140,0.22),transparent_32%),radial-gradient(circle_at_78%_18%,rgba(120,10,30,0.36),transparent_28%),linear-gradient(135deg,rgba(255,255,255,0.06),transparent_42%)]" />
+      <div className="pointer-events-none fixed inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:72px_72px] opacity-25" />
       <SiteHeader />
 
-      <section className="relative z-10 flex min-h-screen items-center px-6 pb-24 pt-32 text-center">
-        <div className="mx-auto max-w-6xl">
-          <p className="mx-auto mb-6 inline-flex rounded-full border border-pink-500/20 bg-pink-500/10 px-5 py-2 text-xs font-black uppercase tracking-widest text-pink-100">
-            Software · Web · Automatización · DJ · Mentorías
-          </p>
-          <h1 className="text-5xl font-black leading-tight tracking-tight md:text-7xl">
-            SOFTWARE, WEB Y AUTOMATIZACIÓN PARA HACER CRECER TU NEGOCIO
-          </h1>
-          <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-zinc-300">
-            EMESTÉ.CL desarrolla soluciones tecnológicas profesionales y evoluciona como ecosistema de software, música y mentorías creado por Emerson Gil.
-          </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a href={quoteUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-2xl bg-pink-600 px-8 py-4 font-black transition hover:bg-pink-500">
-              Cotizar proyecto <ArrowRight size={18} />
-            </a>
-            <a href={siteConfig.calendarUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/10 px-8 py-4 font-black transition hover:bg-white/15">
-              Asesoría gratis <CalendarCheck size={18} />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section id="ecosistema" className="relative z-10 px-6 py-24">
-        <div className="mx-auto max-w-7xl">
-          <h2 className="text-center text-4xl font-black md:text-6xl">Ecosistema EMESTÉ</h2>
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {businessLines.map((line) => (
-              <a key={line.title} href={line.href} className="rounded-3xl border border-white/10 bg-white/10 p-8 transition hover:border-pink-400">
-                <p className="text-xs font-black uppercase tracking-widest text-pink-300">{line.eyebrow}</p>
-                <h3 className="mt-4 text-3xl font-black">{line.title}</h3>
-                <p className="mt-5 leading-relaxed text-zinc-300">{line.description}</p>
+      <section className="relative z-10 flex min-h-screen items-center px-4 pb-20 pt-44 sm:px-6 lg:pt-36">
+        <div className="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[1.08fr_0.92fr]">
+          <div>
+            <p className="inline-flex rounded-full border border-pink-400/30 bg-white/10 px-4 py-2 text-[11px] font-black uppercase tracking-[0.18em] text-pink-100 shadow-[0_0_34px_rgba(236,0,140,0.18)] backdrop-blur-2xl">
+              Tecnología comercial para empresas en Chile
+            </p>
+            <h1 className="mt-7 max-w-5xl text-4xl font-black leading-[1.02] tracking-tight text-white sm:text-5xl md:text-6xl xl:text-7xl">
+              Tecnología premium para que tu negocio venda más y trabaje mejor.
+            </h1>
+            <p className="mt-7 max-w-3xl text-base leading-8 text-zinc-300 sm:text-lg">
+              EMESTÉ.CL crea páginas web, landing pages, sistemas y automatizaciones con diseño profesional,
+              enfoque comercial y desarrollo a medida para empresas, emprendedores y profesionales en Chile.
+            </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={quoteUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-pink-600 px-7 py-4 text-sm font-black uppercase tracking-[0.1em] text-white shadow-[0_0_40px_rgba(236,0,140,0.45)] transition hover:-translate-y-0.5 hover:bg-pink-500"
+              >
+                Cotizar mi proyecto <ArrowRight size={18} />
               </a>
-            ))}
+              <a
+                href={siteConfig.calendarUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-7 py-4 text-sm font-black uppercase tracking-[0.1em] text-white backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-white/15"
+              >
+                Asesoría gratis <CalendarCheck size={18} />
+              </a>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              {heroSeals.map((seal) => (
+                <span
+                  key={seal}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.07] px-4 py-2 text-xs font-bold text-zinc-200 backdrop-blur-xl"
+                >
+                  <Check size={14} className="text-pink-300" /> {seal}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="absolute -inset-5 rounded-[2rem] bg-pink-600/20 blur-3xl" />
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/15 bg-white/[0.08] p-5 shadow-2xl shadow-black/50 backdrop-blur-2xl">
+              <div className="rounded-[1.5rem] border border-white/10 bg-black/55 p-5">
+                <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-4">
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-[0.18em] text-pink-200">Panel EMESTÉ</p>
+                    <p className="mt-2 text-2xl font-black">Proyecto comercial</p>
+                  </div>
+                  <Cpu className="text-pink-300" size={34} />
+                </div>
+                <div className="mt-5 grid gap-3">
+                  {["Web lista para captar clientes", "Agenda y WhatsApp conectados", "Sistema interno escalable"].map(
+                    (item, index) => (
+                      <div key={item} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.06] p-4">
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-pink-600/20 text-sm font-black text-pink-100">
+                          0{index + 1}
+                        </span>
+                        <span className="text-sm font-bold text-zinc-200">{item}</span>
+                      </div>
+                    ),
+                  )}
+                </div>
+                <div className="mt-5 grid grid-cols-2 gap-3">
+                  <div className="rounded-2xl bg-gradient-to-br from-pink-500/25 to-red-950/40 p-4">
+                    <p className="text-3xl font-black">+Venta</p>
+                    <p className="mt-2 text-xs font-semibold text-zinc-300">Diseño con foco comercial</p>
+                  </div>
+                  <div className="rounded-2xl bg-white/[0.07] p-4">
+                    <p className="text-3xl font-black">+Orden</p>
+                    <p className="mt-2 text-xs font-semibold text-zinc-300">Procesos y soporte claro</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="servicios" className="relative z-10 px-6 py-24">
+      <section id="servicios" className="relative z-10 px-4 py-20 sm:px-6">
         <div className="mx-auto max-w-7xl">
-          <h2 className="text-center text-4xl font-black md:text-6xl">Servicios tecnológicos</h2>
-          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {softwareServices.map((service) => (
-              <article key={service.title} className="rounded-3xl border border-white/10 bg-white/10 p-7">
-                <h3 className="text-xl font-black">{service.title}</h3>
-                <p className="mt-4 leading-relaxed text-zinc-400">{service.description}</p>
+          <div className="max-w-3xl">
+            <p className="text-xs font-black uppercase tracking-[0.2em] text-pink-300">Servicios</p>
+            <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-5xl">Soluciones tecnológicas para vender, operar y escalar.</h2>
+          </div>
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {services.map((service) => {
+              const Icon = service.icon;
+              return (
+                <article
+                  key={service.title}
+                  className="group rounded-[1.5rem] border border-white/10 bg-white/[0.07] p-6 shadow-xl shadow-black/20 backdrop-blur-xl transition hover:-translate-y-1 hover:border-pink-300/50 hover:bg-white/[0.1]"
+                >
+                  <Icon className="text-pink-300" size={30} />
+                  <h3 className="mt-5 text-xl font-black">{service.title}</h3>
+                  <p className="mt-4 leading-7 text-zinc-300">{service.description}</p>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section id="caso-real" className="relative z-10 px-4 py-20 sm:px-6">
+        <div className="mx-auto grid max-w-7xl gap-8 rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/[0.1] via-pink-950/20 to-black/40 p-6 shadow-2xl shadow-black/35 backdrop-blur-2xl md:p-10 lg:grid-cols-[0.95fr_1.05fr]">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.2em] text-pink-300">Caso real entregado</p>
+            <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-5xl">Software de ventas para cliente real</h2>
+          </div>
+          <div>
+            <p className="text-lg leading-8 text-zinc-300">
+              EMESTÉ.CL ya desarrolló una solución personalizada para un cliente que necesitaba ordenar su proceso
+              comercial. El resultado fue un sistema funcional, claro y adaptado a su forma de trabajo.
+            </p>
+            <div className="mt-7 grid gap-3 sm:grid-cols-2">
+              {caseIndicators.map((indicator) => (
+                <span key={indicator} className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm font-bold text-zinc-100">
+                  <BadgeCheck size={18} className="text-pink-300" /> {indicator}
+                </span>
+              ))}
+            </div>
+            <a
+              href={caseUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-8 inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 text-sm font-black uppercase tracking-[0.1em] text-black transition hover:-translate-y-0.5 hover:bg-pink-100"
+            >
+              Quiero una solución similar <MessageCircle size={18} />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="planes" className="relative z-10 px-4 py-20 sm:px-6">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-3xl">
+            <p className="text-xs font-black uppercase tracking-[0.2em] text-pink-300">Planes</p>
+            <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-5xl">Puntos de partida claros para cotizar con orden.</h2>
+          </div>
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {commercialPackages.map((plan) => (
+              <article key={plan.name} className="rounded-[1.5rem] border border-white/10 bg-white/[0.075] p-6 backdrop-blur-xl transition hover:-translate-y-1 hover:border-pink-300/50">
+                <p className="text-2xl font-black">{plan.name}</p>
+                <p className="mt-4 text-xl font-black text-pink-200">{plan.price}</p>
+                <p className="mt-4 min-h-20 leading-7 text-zinc-300">{plan.description}</p>
+                <div className="mt-6 grid gap-3">
+                  {plan.items.map((item) => (
+                    <span key={item} className="flex items-center gap-2 text-sm font-bold text-zinc-200">
+                      <Check size={16} className="text-pink-300" /> {item}
+                    </span>
+                  ))}
+                </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="proceso" className="relative z-10 px-4 py-20 sm:px-6">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-pink-300">Proceso</p>
+              <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-5xl">Proceso profesional, claro y protegido</h2>
+              <p className="mt-5 text-lg leading-8 text-zinc-300">
+                Trabajamos por etapas, con alcance definido, propuesta formal y pagos ordenados para que el proyecto
+                avance con seguridad.
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {processSteps.map((step, index) => (
+                <div key={step} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.07] p-4 backdrop-blur-xl">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-pink-600/20 text-sm font-black text-pink-100">
+                    {index + 1}
+                  </span>
+                  <span className="font-black">{step}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" className="relative z-10 px-4 py-20 sm:px-6">
+        <div className="mx-auto max-w-5xl rounded-[2rem] border border-white/10 bg-gradient-to-br from-pink-600/20 via-white/[0.08] to-red-950/25 p-6 text-center shadow-2xl shadow-black/30 backdrop-blur-2xl sm:p-10">
+          <Sparkles className="mx-auto text-pink-200" size={34} />
+          <h2 className="mt-5 text-3xl font-black tracking-tight sm:text-5xl">Tu negocio puede verse, vender y funcionar mejor.</h2>
+          <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-zinc-300">
+            Agenda una asesoría gratuita y revisamos qué solución te conviene: página web, landing, software,
+            automatización o sistema interno.
+          </p>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <a
+              href={siteConfig.calendarUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-pink-600 px-7 py-4 text-sm font-black uppercase tracking-[0.1em] text-white transition hover:-translate-y-0.5 hover:bg-pink-500"
+            >
+              Agendar asesoría gratis <CalendarCheck size={18} />
+            </a>
+            <a
+              href={finalWhatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-7 py-4 text-sm font-black uppercase tracking-[0.1em] text-white transition hover:-translate-y-0.5 hover:bg-white/15"
+            >
+              Hablar por WhatsApp <MessageCircle size={18} />
+            </a>
+          </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm font-bold text-zinc-300">
+            <span className="inline-flex items-center gap-2"><ShieldCheck size={16} className="text-pink-300" /> Propuesta formal</span>
+            <span className="inline-flex items-center gap-2"><Layers3 size={16} className="text-pink-300" /> Alcance definido</span>
           </div>
         </div>
       </section>

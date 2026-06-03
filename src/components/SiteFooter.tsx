@@ -1,4 +1,4 @@
-import { navItems, siteConfig } from "@/data/emeste";
+﻿import { navItems, siteConfig } from "@/data/emeste";
 
 export function SiteFooter() {
   return (
@@ -7,7 +7,7 @@ export function SiteFooter() {
         <div>
           <p className="text-lg font-black tracking-[0.2em] text-white">EMESTÉ.CL</p>
           <p className="mt-4 max-w-xl leading-relaxed">
-            Tecnología, música y conciencia para construir negocios, experiencias y vidas con propósito.
+            Tecnología premium, software a medida, páginas web y automatizaciones para negocios que necesitan vender y operar mejor.
           </p>
           <p className="mt-5 font-semibold text-zinc-300">{siteConfig.brandCredit}</p>
         </div>
@@ -35,11 +35,11 @@ export function SiteFooter() {
             <a href={siteConfig.calendarUrl} target="_blank" rel="noreferrer" className="transition hover:text-white">
               Agenda una asesoría gratis
             </a>
-            <a href="https://www.instagram.com/emeste.cl/" target="_blank" rel="noreferrer" className="transition hover:text-white">
+            <a href={siteConfig.instagramEmesteUrl} target="_blank" rel="noreferrer" className="transition hover:text-white">
               Instagram EMESTÉ
             </a>
-            <a href={siteConfig.instagramUrl} target="_blank" rel="noreferrer" className="transition hover:text-white">
-              Instagram DJ
+            <a href="/presskit" className="transition hover:text-white">
+              Press Kit DJ
             </a>
           </div>
         </div>
