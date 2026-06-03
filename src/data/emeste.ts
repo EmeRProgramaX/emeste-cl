@@ -1,4 +1,4 @@
-export const siteConfig = {
+﻿export const siteConfig = {
   name: "EMESTÉ.CL",
   brand: "EMESTÉ",
   legalName: "EMESTÉ Technologies",
@@ -21,6 +21,7 @@ export const navItems = [
   { label: "Caso real", href: "/#caso-real" },
   { label: "Planes", href: "/#planes" },
   { label: "Proceso", href: "/#proceso" },
+  { label: "Press Kit", href: "/presskit" },
   { label: "Contacto", href: "/#contacto" },
 ];
 
@@ -36,7 +37,7 @@ export const businessLines = [
   {
     eyebrow: "Marca artística",
     title: "EMESTÉ DJ",
-    href: "/dj",
+    href: "/presskit",
     description:
       "Música, energía y conexión real para eventos privados, empresas, clubes y experiencias memorables.",
     cta: "Ver press kit",
@@ -96,6 +97,13 @@ export const commercialPackages = [
       "Para negocios que necesitan ordenar procesos, ventas, reservas o información interna.",
     items: ["Diagnóstico técnico", "Arquitectura escalable", "Panel o flujo interno", "Soporte inicial"],
   },
+  {
+    name: "Automatización",
+    price: "Cotización personalizada",
+    description:
+      "Automatización de tareas repetitivas para ahorrar tiempo, responder mejor y ordenar el negocio.",
+    items: ["Flujos automáticos", "Alertas", "Integraciones", "Documentación"],
+  },
 ];
 
 export const latestUpdates = [
@@ -111,7 +119,7 @@ export const latestUpdates = [
     title: "Nuevo press kit artístico",
     description:
       "La línea EMESTÉ DJ tendrá una página dedicada para booking, biografía, sesiones, videos y material profesional.",
-    href: "/dj",
+    href: "/presskit",
   },
   {
     tag: "Mentorías",

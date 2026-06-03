@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 import { navItems, siteConfig } from "@/data/emeste";
 
@@ -13,6 +13,7 @@ export function SiteHeader() {
             width={40}
             height={40}
             className="h-9 w-9 shrink-0 rounded-xl object-cover ring-1 ring-white/10 sm:h-10 sm:w-10"
+            priority
           />
           <div className="min-w-0 leading-none">
             <p className="truncate text-xs font-black tracking-[0.16em] text-white sm:text-sm">EMESTÉ.CL</p>
@@ -22,7 +23,7 @@ export function SiteHeader() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-6 text-sm font-semibold text-zinc-300 lg:flex">
+        <nav className="hidden items-center gap-5 text-sm font-semibold text-zinc-300 lg:flex">
           {navItems.map((item) => (
             <a key={item.href} href={item.href} className="transition hover:text-white">
               {item.label}
@@ -36,7 +37,7 @@ export function SiteHeader() {
           rel="noreferrer"
           className="hidden shrink-0 rounded-full bg-pink-600 px-5 py-3 text-xs font-black uppercase tracking-[0.12em] text-white shadow-[0_0_28px_rgba(236,0,140,0.45)] transition hover:bg-pink-500 md:inline-flex"
         >
-          Agendar ahora
+          Asesoría gratis
         </a>
 
         <Link
