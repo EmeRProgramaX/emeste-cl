@@ -1,4 +1,4 @@
-﻿export const siteConfig = {
+export const siteConfig = {
   name: "EMESTÉ.CL",
   brand: "EMESTÉ",
   legalName: "EMESTÉ Technologies",
@@ -78,21 +78,21 @@ export const softwareServices = [
 export const commercialPackages = [
   {
     name: "Landing Express",
-    price: "Desde $220.000 CLP",
+    price: "Cotización personalizada",
     description:
       "Para negocios que necesitan presencia profesional inmediata y contacto directo.",
     items: ["Diseño responsive", "WhatsApp e Instagram", "SEO base", "Publicación"],
   },
   {
     name: "Web Profesional",
-    price: "Desde $350.000 CLP",
+    price: "Cotización personalizada",
     description:
       "Para empresas que necesitan más confianza, secciones comerciales y mejor imagen.",
     items: ["Secciones corporativas", "Diseño premium", "Formulario o agenda", "Optimización comercial"],
   },
   {
     name: "Software / Automatización",
-    price: "Desde $550.000 CLP",
+    price: "Cotización personalizada",
     description:
       "Para negocios que necesitan ordenar procesos, ventas, reservas o información interna.",
     items: ["Diagnóstico técnico", "Arquitectura escalable", "Panel o flujo interno", "Soporte inicial"],
