@@ -5,7 +5,6 @@ import {
   Check,
   CircleDollarSign,
   Code2,
-  Cpu,
   Gauge,
   Headphones,
   Layers3,
@@ -82,86 +81,52 @@ export default function Home() {
       <div className="pointer-events-none fixed inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:72px_72px] opacity-25" />
       <SiteHeader />
 
-      <section className="relative z-10 flex min-h-screen items-center px-4 pb-20 pt-44 sm:px-6 lg:pt-36">
-        <div className="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[1.08fr_0.92fr]">
-          <div className="text-center lg:text-left">
-            <p className="inline-flex rounded-full border border-pink-400/30 bg-white/10 px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.18em] text-pink-100 shadow-[0_0_34px_rgba(236,0,140,0.18)] backdrop-blur-2xl">
-              Tecnología comercial para empresas en Chile
-            </p>
-            <div className="bevel-title-shell mx-auto mt-7 max-w-5xl rounded-[1.8rem] px-4 py-5 text-center sm:px-6 sm:py-6 lg:mx-0">
-              <h1 className="title-3d text-4xl font-extrabold leading-[1.02] tracking-[-0.045em] sm:text-5xl md:text-6xl xl:text-7xl">
-                Tecnología premium para que tu negocio venda más y trabaje mejor.
-              </h1>
-            </div>
-            <p className="mx-auto mt-7 max-w-3xl text-base leading-8 text-zinc-300 sm:text-lg lg:mx-0">
-              EMESTÉ.CL crea páginas web, landing pages, sistemas y automatizaciones con diseño profesional,
-              enfoque comercial y desarrollo a medida para empresas, emprendedores y profesionales en Chile.
-            </p>
-            <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-              <a
-                href={quoteUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="emeste-button inline-flex items-center justify-center gap-2 rounded-2xl bg-pink-600 px-7 py-4 text-sm font-extrabold uppercase tracking-[0.1em] text-white shadow-[0_0_40px_rgba(236,0,140,0.45)] transition hover:-translate-y-0.5 hover:bg-pink-500"
-              >
-                Cotizar mi proyecto <ArrowRight size={18} />
-              </a>
-              <a
-                href={siteConfig.calendarUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-7 py-4 text-sm font-extrabold uppercase tracking-[0.1em] text-white backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-white/15"
-              >
-                Asesoría gratis <CalendarCheck size={18} />
-              </a>
-            </div>
-            <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
-              {heroSeals.map((seal) => (
-                <span
-                  key={seal}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.07] px-4 py-2 text-xs font-bold text-zinc-200 backdrop-blur-xl"
-                >
-                  <Check size={14} className="text-pink-300" /> {seal}
-                </span>
-              ))}
-            </div>
+      <section className="relative z-10 flex min-h-screen items-center justify-center px-4 pb-20 pt-36 sm:px-6">
+        <div className="mx-auto flex w-full max-w-7xl flex-col items-center text-center">
+          <p className="mb-8 text-[11px] font-extrabold uppercase tracking-[0.18em] text-pink-100/70">
+            &lt;/&gt; const crear = soluciones =&gt; crecimiento;
+          </p>
+
+          <h1 className="hero-retro-title max-w-5xl text-[2.6rem] font-extrabold sm:text-6xl md:text-7xl lg:text-8xl">
+            <span>Software, web y</span>
+            <span>automatización para</span>
+            <span className="accent">hacer crecer</span>
+            <span className="accent">tu negocio</span>
+          </h1>
+
+          <p className="mx-auto mt-9 max-w-3xl text-base leading-8 text-zinc-300 sm:text-lg">
+            EMESTÉ.CL crea páginas web, landing pages, sistemas y automatizaciones con diseño profesional,
+            enfoque comercial y desarrollo a medida para empresas, emprendedores y profesionales en Chile.
+          </p>
+
+          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+            <a
+              href={quoteUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="emeste-button inline-flex items-center justify-center gap-2 rounded-2xl bg-pink-600 px-7 py-4 text-sm font-extrabold uppercase tracking-[0.1em] text-white shadow-[0_0_40px_rgba(236,0,140,0.45)] transition hover:-translate-y-0.5 hover:bg-pink-500"
+            >
+              Cotizar mi proyecto <ArrowRight size={18} />
+            </a>
+            <a
+              href={siteConfig.calendarUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-7 py-4 text-sm font-extrabold uppercase tracking-[0.1em] text-white backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-white/15"
+            >
+              Asesoría gratis <CalendarCheck size={18} />
+            </a>
           </div>
 
-          <div className="relative">
-            <div className="absolute -inset-5 rounded-[2rem] bg-pink-600/20 blur-3xl" />
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/15 bg-white/[0.08] p-5 shadow-2xl shadow-black/50 backdrop-blur-2xl">
-              <div className="rounded-[1.5rem] border border-white/10 bg-black/55 p-5">
-                <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-4">
-                  <div>
-                    <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-pink-200">Panel EMESTÉ</p>
-                    <p className="mt-2 text-2xl font-extrabold">Proyecto comercial</p>
-                  </div>
-                  <Cpu className="text-pink-300" size={34} />
-                </div>
-                <div className="mt-5 grid gap-3">
-                  {["Web lista para captar clientes", "Agenda y WhatsApp conectados", "Sistema interno escalable"].map(
-                    (item, index) => (
-                      <div key={item} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.06] p-4">
-                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-pink-600/20 text-sm font-extrabold text-pink-100">
-                          0{index + 1}
-                        </span>
-                        <span className="text-sm font-bold text-zinc-200">{item}</span>
-                      </div>
-                    ),
-                  )}
-                </div>
-                <div className="mt-5 grid grid-cols-2 gap-3">
-                  <div className="rounded-2xl bg-gradient-to-br from-pink-500/25 to-red-950/40 p-4">
-                    <p className="text-3xl font-extrabold">+Venta</p>
-                    <p className="mt-2 text-xs font-semibold text-zinc-300">Diseño con foco comercial</p>
-                  </div>
-                  <div className="rounded-2xl bg-white/[0.07] p-4">
-                    <p className="text-3xl font-extrabold">+Orden</p>
-                    <p className="mt-2 text-xs font-semibold text-zinc-300">Procesos y soporte claro</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            {heroSeals.map((seal) => (
+              <span
+                key={seal}
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.07] px-4 py-2 text-xs font-bold text-zinc-200 backdrop-blur-xl"
+              >
+                <Check size={14} className="text-pink-300" /> {seal}
+              </span>
+            ))}
           </div>
         </div>
       </section>
