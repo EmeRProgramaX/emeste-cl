@@ -84,23 +84,25 @@ export default function Home() {
 
       <section className="relative z-10 flex min-h-screen items-center px-4 pb-20 pt-44 sm:px-6 lg:pt-36">
         <div className="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[1.08fr_0.92fr]">
-          <div>
+          <div className="text-center lg:text-left">
             <p className="inline-flex rounded-full border border-pink-400/30 bg-white/10 px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.18em] text-pink-100 shadow-[0_0_34px_rgba(236,0,140,0.18)] backdrop-blur-2xl">
               Tecnología comercial para empresas en Chile
             </p>
-            <h1 className="mt-7 max-w-5xl text-4xl font-extrabold leading-[1.02] tracking-[-0.045em] text-white sm:text-5xl md:text-6xl xl:text-7xl">
-              Tecnología premium para que tu negocio venda más y trabaje mejor.
-            </h1>
-            <p className="mt-7 max-w-3xl text-base leading-8 text-zinc-300 sm:text-lg">
+            <div className="bevel-title-shell mx-auto mt-7 max-w-5xl rounded-[1.8rem] px-4 py-5 text-center sm:px-6 sm:py-6 lg:mx-0">
+              <h1 className="title-3d text-4xl font-extrabold leading-[1.02] tracking-[-0.045em] sm:text-5xl md:text-6xl xl:text-7xl">
+                Tecnología premium para que tu negocio venda más y trabaje mejor.
+              </h1>
+            </div>
+            <p className="mx-auto mt-7 max-w-3xl text-base leading-8 text-zinc-300 sm:text-lg lg:mx-0">
               EMESTÉ.CL crea páginas web, landing pages, sistemas y automatizaciones con diseño profesional,
               enfoque comercial y desarrollo a medida para empresas, emprendedores y profesionales en Chile.
             </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
               <a
                 href={quoteUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-pink-600 px-7 py-4 text-sm font-extrabold uppercase tracking-[0.1em] text-white shadow-[0_0_40px_rgba(236,0,140,0.45)] transition hover:-translate-y-0.5 hover:bg-pink-500"
+                className="emeste-button inline-flex items-center justify-center gap-2 rounded-2xl bg-pink-600 px-7 py-4 text-sm font-extrabold uppercase tracking-[0.1em] text-white shadow-[0_0_40px_rgba(236,0,140,0.45)] transition hover:-translate-y-0.5 hover:bg-pink-500"
               >
                 Cotizar mi proyecto <ArrowRight size={18} />
               </a>
@@ -113,7 +115,7 @@ export default function Home() {
                 Asesoría gratis <CalendarCheck size={18} />
               </a>
             </div>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
               {heroSeals.map((seal) => (
                 <span
                   key={seal}
