@@ -1,7 +1,20 @@
 import type { Metadata, Viewport } from "next";
+import { Inter, Space_Grotesk } from "next/font/google";
 import { TrackingScripts } from "@/components/TrackingScripts";
 import "./globals.css";
 import "./responsive.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -73,7 +86,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es-CL">
+    <html lang="es-CL" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body>
         <TrackingScripts />
         {children}
