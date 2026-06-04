@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { navItems, siteConfig } from "@/data/emeste";
 
@@ -35,16 +35,16 @@ export function SiteHeader() {
           href={siteConfig.calendarUrl}
           target="_blank"
           rel="noreferrer"
-          className="hidden shrink-0 rounded-full bg-pink-600 px-5 py-3 text-xs font-black uppercase tracking-[0.12em] text-white shadow-[0_0_28px_rgba(236,0,140,0.45)] transition hover:-translate-y-0.5 hover:bg-pink-500 hover:shadow-[0_0_45px_rgba(236,0,140,0.65)] md:inline-flex"
+          className="attention-cta hidden shrink-0 rounded-full bg-pink-600 px-5 py-3 text-xs font-black uppercase tracking-[0.12em] text-white md:inline-flex"
         >
-          Hablemos de tu proyecto
+          Asesoría gratis
         </a>
 
         <Link
-          href="/#Hablemos"
-          className="shrink-0 rounded-full bg-pink-600 px-4 py-2 text-[11px] font-black uppercase tracking-[0.1em] text-white shadow-[0_0_24px_rgba(236,0,140,0.35)] transition hover:bg-pink-500 md:hidden"
+          href="/#contacto"
+          className="attention-cta shrink-0 rounded-full bg-pink-600 px-4 py-2 text-[11px] font-black uppercase tracking-[0.1em] text-white md:hidden"
         >
-          Hablemos
+          Gratis
         </Link>
       </div>
 
@@ -58,4 +58,3 @@ export function SiteHeader() {
     </header>
   );
 }
-
