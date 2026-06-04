@@ -83,10 +83,6 @@ export default function Home() {
 
       <section className="relative z-10 flex min-h-screen items-center justify-center px-4 pb-20 pt-36 sm:px-6">
         <div className="mx-auto flex w-full max-w-7xl flex-col items-center text-center">
-          <p className="mb-8 text-[11px] font-extrabold uppercase tracking-[0.18em] text-pink-100/70">
-            &lt;/&gt; const crear = soluciones =&gt; crecimiento;
-          </p>
-
           <h1 className="hero-retro-title max-w-5xl text-[2.6rem] font-extrabold sm:text-6xl md:text-7xl lg:text-8xl">
             <span>Software, web y</span>
             <span>automatización para</span>
