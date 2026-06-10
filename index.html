@@ -64,10 +64,10 @@ section{padding:clamp(80px,10vw,130px) clamp(20px,5vw,80px);position:relative;z-
 .photo-card:hover{transform:scale(1.03);box-shadow:0 20px 60px rgba(0,0,0,.5)}
 .photo-card .overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,130,158,.35),rgba(203,169,106,.25));opacity:0;transition:opacity .4s ease;z-index:2}
 .photo-card:hover .overlay{opacity:1}
-.photo-card .label{position:absolute;bottom:0;left:0;right:0;padding:18px;background:linear-gradient(0,rgba(6,2,12,.95),transparent);z-index:3;transform:translateY(10px);opacity:0;transition:all .4s ease}
-.photo-card:hover .label{transform:translateY(0);opacity:1}
-.photo-card .photo-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)scale(.5);opacity:0;transition:all .4s ease;z-index:4;color:white;font-size:32px}
-.photo-card:hover .photo-icon{opacity:1;transform:translate(-50%,-50%)scale(1)}
+.photo-card .label{position:absolute;bottom:0;left:0;right:0;padding:18px;background:linear-gradient(0,rgba(6,2,12,.95),transparent);z-index:3;opacity:1;transition:all .4s ease}
+.photo-card:hover .label{opacity:1}
+.photo-card .photo-icon{position:absolute;top:38%;left:50%;transform:translate(-50%,-50%);opacity:.7;transition:all .4s ease;z-index:4;color:white;font-size:32px}
+.photo-card:hover .photo-icon{opacity:1;transform:translate(-50%,-50%)scale(1.15)}
 
 /* REEL CARDS */
 .reel-card{position:relative;border-radius:20px;overflow:hidden;cursor:pointer;transition:all .4s cubic-bezier(.4,0,.2,1);border:1px solid rgba(255,255,255,.07)}
@@ -440,14 +440,589 @@ const SERVICES=[
 
 // Gallery: rich multi-layer gradient "photo" cards
 const GALLERY=[
-  {bg:"linear-gradient(160deg,#3D0A22 0%,#6B1540 40%,#3D0A22 100%)",accent:"radial-gradient(ellipse at 30% 20%,rgba(240,184,208,.35) 0%,transparent 60%)",title:"Armonización Facial",sub:"Resultados naturales",icon:"◈",tall:true},
-  {bg:"linear-gradient(145deg,#1A0830 0%,#3A1060 40%,#1A0830 100%)",accent:"radial-gradient(ellipse at 70% 80%,rgba(203,169,106,.3) 0%,transparent 55%)",title:"Rellenos Labiales",sub:"Volumen & definición",icon:"❋",tall:false},
-  {bg:"linear-gradient(135deg,#0A1830 0%,#1A3060 45%,#0A1830 100%)",accent:"radial-gradient(ellipse at 50% 20%,rgba(212,130,158,.25) 0%,transparent 55%)",title:"Diseño de Cejas",sub:"Marco perfecto",icon:"✧",tall:false},
-  {bg:"linear-gradient(150deg,#2A0A1A 0%,#501828 45%,#2A0A1A 100%)",accent:"radial-gradient(ellipse at 30% 70%,rgba(240,184,208,.3) 0%,transparent 55%)",title:"Antes & Después",sub:"Transformaciones reales",icon:"✦",tall:false},
-  {bg:"linear-gradient(155deg,#150828 0%,#301450 40%,#150828 100%)",accent:"radial-gradient(ellipse at 60% 30%,rgba(203,169,106,.28) 0%,transparent 55%)",title:"Micropigmentación",sub:"Belleza semipermanente",icon:"⟡",tall:true},
-  {bg:"linear-gradient(140deg,#0A2010 0%,#183A20 45%,#0A2010 100%)",accent:"radial-gradient(ellipse at 40% 60%,rgba(180,230,180,.15) 0%,transparent 55%)",title:"Hidratación",sub:"Piel radiante",icon:"✿",tall:false},
-  {bg:"linear-gradient(145deg,#200810 0%,#401015 40%,#200810 100%)",accent:"radial-gradient(ellipse at 70% 30%,rgba(240,160,180,.3) 0%,transparent 60%)",title:"Bótox",sub:"Suavidad natural",icon:"◉",tall:false},
-  {bg:"linear-gradient(135deg,#181028 0%,#30204A 40%,#181028 100%)",accent:"radial-gradient(ellipse at 30% 80%,rgba(200,180,100,.25) 0%,transparent 55%)",title:"Tratamiento Premium",sub:"Resultado estrella",icon:"✺",tall:false}
+  {img:"https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=85&fit=crop",bg:"linear-gradient(155deg,#5A1535,#8B2252)",icon:"◈",title:"Armonización Facial",sub:"Resultados naturales",tall:true},
+  {img:"https://images.unsplash.com/photo-1522337360429-a1b7208df8c4?w=600&q=85&fit=crop",bg:"linear-gradient(145deg,#2A1045,#4A1870)",icon:"❋",title:"Rellenos Labiales",sub:"Volumen & definición",tall:false},
+  {img:"https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&q=85&fit=crop",bg:"linear-gradient(135deg,#1A2840,#2A4065)",icon:"✧",title:"Diseño de Cejas",sub:"Marco perfecto",tall:false},
+  {img:"https://images.unsplash.com/photo-1512290923640-7d5571cd0bf4?w=600&q=85&fit=crop",bg:"linear-gradient(150deg,#3D1225,#6B2040)",icon:"✦",title:"Antes & Después",sub:"Transformaciones reales",tall:false},
+  {img:"https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=85&fit=crop",bg:"linear-gradient(145deg,#250840,#401565)",icon:"⟡",title:"Micropigmentación",sub:"Belleza que perdura",tall:true},
+  {img:"https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=85&fit=crop",bg:"linear-gradient(140deg,#1A3028,#2A5040)",icon:"✿",title:"Hidratación Profunda",sub:"Piel radiante",tall:false},
+  {img:"https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=85&fit=crop",bg:"linear-gradient(145deg,#3A1018,#5A1825)",icon:"◉",title:"Bótox Preventivo",sub:"Suavidad natural",tall:false},
+  {img:"https://images.unsplash.com/photo-1597214268964-197f43cfe7b5?w=600&q=85&fit=crop",bg:"linear-gradient(135deg,#25103A,#401860)",icon:"✺",title:"Tratamiento Premium",sub:"Resultado estrella",tall:false},
+];
+
+// Reels / Videos
+const REELS=[
+  {bg:"linear-gradient(160deg,#3D0A22,#7B1540,#3D0A22)",title:"Proceso de Armonización Facial Completo",views:"2.4K",dur:"1:24",type:"REEL"},
+  {bg:"linear-gradient(145deg,#1A0830,#3A1060,#200820)",title:"Testimonio — María José transforma su mirada",views:"1.8K",dur:"0:58",type:"REEL"},
+  {bg:"linear-gradient(135deg,#0A1830,#1A3060,#0A1030)",title:"Antes y después: Rellenos labiales naturales",views:"3.1K",dur:"0:45",type:"REEL"},
+  {bg:"linear-gradient(155deg,#2A1A08,#503010,#2A1A08)",title:"5 tips para cuidar tu armonización en casa",views:"985",dur:"2:10",type:"VIDEO"},
+  {bg:"linear-gradient(140deg,#0A2018,#183830,#0A2018)",title:"Micropigmentación de cejas — paso a paso",views:"4.2K",dur:"3:05",type:"REEL"},
+  {bg:"linear-gradient(145deg,#200818,#401030,#200818)",title:"Celebrando 3 años de Emeste Studio ✦",views:"1.2K",dur:"1:15",type:"REEL"}
+];
+
+// Before/After
+const BA=[
+  {bg1:"linear-gradient(135deg,#1A0828,#300845)",bg2:"linear-gradient(135deg,#3D0A22,#6B1540)",label:"Armonización Facial",detail:"Resultados a los 21 días"},
+  {bg1:"linear-gradient(135deg,#0A1828,#182840)",bg2:"linear-gradient(135deg,#1A2845,#304060)",label:"Diseño de Cejas",detail:"Micropigmentación"},
+  {bg1:"linear-gradient(135deg,#1A1028,#302040)",bg2:"linear-gradient(135deg,#281040,#501860)",label:"Rellenos Labiales",detail:"Ácido hialurónico premium"}
+];
+
+// Testimonials
+const TESTS=[
+  {name:"Valentina R.",city:"Viña del Mar",text:"¡Quedé encantada! El resultado fue absolutamente natural y preciso. Se nota el cariño y la dedicación en cada detalle. 100% recomendada.",stars:5,svc:"Armonización Facial"},
+  {name:"Camila M.",city:"Valparaíso",text:"Primera vez que me hago algo y lo recomendaría sin dudarlo. El ambiente es hermoso, se siente la calidez y el profesionalismo desde que llegas.",stars:5,svc:"Rellenos Labiales"},
+  {name:"Sofía L.",city:"Concón",text:"Me hice el diseño de cejas y quedé completamente feliz. Ahora mi mirada dice todo. Emeste Studio tiene magia en sus manos.",stars:5,svc:"Diseño de Cejas"},
+  {name:"Daniela P.",city:"Viña del Mar",text:"El bótox quedó precioso — súper natural, nadie nota que me lo hice pero todos me dicen que me veo increíble. Eso es exactamente lo que quería.",stars:5,svc:"Bótox Preventivo"}
+];
+
+// Promos
+const PROMOS=[
+  {badge:"HOT",title:"Combo Primavera ✦",sub:"Armonización + Labios",desc:"Transforma tu look con nuestro combo estrella: armonización facial y relleno labial en una sola sesión.",disc:"20%",price:"$212.000",og:"$265.000",col:"#F0B8D0",exp:"Válido hasta 30 Jun"},
+  {badge:"NEW",title:"Primera Visita ◈",sub:"Sesión de bienvenida",desc:"Para nuevas clientas: consulta inicial + primer tratamiento con descuento exclusivo de bienvenida.",disc:"15%",price:"$127.500",og:"$150.000",col:"#E8CB94",exp:"Una vez por persona"},
+  {badge:"💎",title:"Pack Reina ✧",sub:"Experiencia completa",desc:"Pack más exclusivo: armonización, labios, cejas e hidratación profunda. La experiencia premium total.",disc:"25%",price:"$337.500",og:"$450.000",col:"#F0B8D0",exp:"Solo 5 cupos al mes"}
+];
+
+// News
+const NEWS=[
+  {cat:"NOVEDAD",date:"02 Jun 2026",title:"Nuevo: Bioestimulación con Radiesse",excerpt:"La técnica más avanzada en bioestimulación colágena para resultados progresivos y completamente naturales.",bg:"linear-gradient(135deg,#280E20,#4A1530)"},
+  {cat:"TIPS",date:"28 May 2026",title:"5 claves para mantener tu armonización por más tiempo",excerpt:"Los cuidados post-tratamiento hacen la diferencia. Te compartimos los secretos para prolongar tus resultados.",bg:"linear-gradient(135deg,#0E1A28,#1A3045)"},
+  {cat:"EMESTE",date:"15 May 2026",title:"Celebramos 3 años transformando bellezas únicas",excerpt:"Tres años de dedicación y amor por la estética. Gracias a cada clienta que confió en nosotros.",bg:"linear-gradient(135deg,#1A1428,#302850)"}
+];
+
+// Contacts
+const CONTACTS=[
+  {icon:"📱",label:"WhatsApp",val:"+56 9 6511 9521",sub:"Reservas rápidas y consultas",link:"https://wa.me/56965119521"},
+  {icon:"📸",label:"Instagram",val:"@emeste_studio_academy",sub:"Resultados, novedades y más",link:"https://instagram.com/emeste_studio_academy"},
+  {icon:"📘",label:"Facebook",val:"Emeste Studio Academy",sub:"fb.com/Emestestudioacademy",link:"https://facebook.com/Emestestudioacademy"},
+  {icon:"📍",label:"Ubicación",val:"Viña del Mar, Valparaíso",sub:"Dirección exacta al confirmar cita",link:"#"},
+  {icon:"🕐",label:"Horario",val:"Lun – Sáb: 9:00 – 18:00",sub:"Domingos solo con cita previa",link:"#"}
+];
+
+const AVAILABLE=new Set([6,7,9,10,12,13,14,16,17,19,20,21,23,24,26,27,28,30]);
+const TIMES=["09:00","10:00","11:00","12:00","14:00","15:00","16:00","17:00"];
+const MONTHS=["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+const DAYS=["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"];
+let selDate=null,selTime=null,bYear=2026,bMonth=5;
+
+// ─── PARTICLES ──────────────────────────────────
+(()=>{
+  const c=document.getElementById('particles');
+  for(let i=0;i<24;i++){
+    const d=document.createElement('div');
+    const sz=1.5+(i*7%4);
+    Object.assign(d.style,{position:'absolute',bottom:0,left:(i*17+7)%100+'%',width:sz+'px',height:sz+'px',borderRadius:'50%',
+      background:`rgba(${200+i%30},${130+i*3%80},${90+i*2%60},.65)`,
+      animation:`particleUp ${12+i*3%14}s ease-in-out ${(i*1.9)%18}s infinite`,opacity:.1+i*.015%0.3,pointerEvents:'none'});
+    c.appendChild(d);
+  }
+})();
+
+// ─── SERVICES ───────────────────────────────────
+(()=>{
+  const g=document.getElementById('svcGrid');
+  SERVICES.forEach((s,i)=>{
+    const d=document.createElement('div');
+    d.className='glass svc-card';
+    d.style.cssText=`padding:30px;position:relative;overflow:hidden;animation-delay:${-i*1.2}s`;
+    d.innerHTML=`<div style="position:absolute;top:-20px;right:-20px;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,${s.ac}25,transparent);pointer-events:none"></div>
+    <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,${s.ac}30,${s.ac}10);border:1px solid ${s.ac}40;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px;color:${s.ac}">${s.icon}</div>
+    <h3 class="t2" style="font-size:18px;font-weight:500;color:#FDF5EE;margin-bottom:5px">${s.title}</h3>
+    <p class="t3" style="font-size:11px;color:${s.ac};letter-spacing:1px;text-transform:uppercase;margin-bottom:12px">${s.sub}</p>
+    <p class="t3" style="font-size:14px;color:rgba(253,245,238,.45);line-height:1.7;margin-bottom:20px;font-weight:300">${s.desc}</p>
+    <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.06);padding-top:16px">
+      <div><p class="t3" style="font-size:10px;color:rgba(253,245,238,.28);letter-spacing:1px;text-transform:uppercase">Duración</p><p class="t3" style="font-size:13px;color:rgba(253,245,238,.7);margin-top:2px">${s.dur}</p></div>
+      <div style="text-align:right"><p class="t3" style="font-size:10px;color:rgba(203,169,106,.5);letter-spacing:1px;text-transform:uppercase">Precio</p><p class="t2" style="font-size:14px;color:#E8CB94;margin-top:2px;font-weight:500">${s.price}</p></div>
+    </div>`;
+    g.appendChild(d);
+  });
+})();
+
+// ─── GALLERY ────────────────────────────────────
+(()=>{
+  const g=document.getElementById('galGrid');
+  GALLERY.forEach((item,i)=>{
+    const d=document.createElement('div');
+    d.className='photo-card';
+    const tall=item.tall;
+    d.style.cssText=`height:${tall?'360px':'220px'};${tall?'grid-column:span 2':'grid-column:span 1'};position:relative;overflow:hidden;border-radius:18px;background:${item.bg};`;
+    // Create image element
+    if(item.img){
+      const img=document.createElement('img');
+      img.src=item.img;
+      img.alt=item.title;
+      img.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .6s ease;z-index:0;';
+      img.onerror=()=>{img.style.display='none';}; // fallback to gradient
+      d.addEventListener('mouseenter',()=>img.style.transform='scale(1.08)');
+      d.addEventListener('mouseleave',()=>img.style.transform='scale(1)');
+      d.appendChild(img);
+    }
+    // Overlay content
+    const inner=document.createElement('div');
+    inner.style.position='absolute';inner.style.inset='0';inner.style.zIndex='1';
+    inner.innerHTML=`
+      <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,2,12,.95) 0%,rgba(6,2,12,.45) 45%,rgba(6,2,12,.08) 100%);z-index:1"></div>
+      <div class="overlay" style="z-index:2"></div>
+      <div class="photo-icon" style="z-index:3">${item.icon}</div>
+      <div class="label" style="z-index:3">
+        <p class="t2" style="font-size:15px;color:#FDF5EE;font-weight:600;margin-bottom:3px;text-shadow:0 2px 8px rgba(0,0,0,.8)">${item.title}</p>
+        <p class="t3" style="font-size:11px;color:rgba(203,169,106,.9);letter-spacing:1.5px;text-shadow:0 2px 6px rgba(0,0,0,.8)">${item.sub}</p>
+      </div>
+      <div style="position:absolute;top:12px;left:12px;background:rgba(6,2,12,.7);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:4px 11px;z-index:4">
+        <span class="t3" style="font-size:10px;color:rgba(240,184,208,.9);letter-spacing:1px">${item.icon} ${item.title.split(' ')[0]}</span>
+      </div>`;
+    d.appendChild(inner);
+    d.onclick=()=>openLightbox(i);
+    g.appendChild(d);
+  });DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Emeste Studio Academy — Armonización Facial · Viña del Mar</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--d:#06020C;--p:#0F051A;--r:#D4829E;--rl:#F0B8D0;--g:#CBA96A;--gl:#E8CB94;--cr:#FDF5EE}
+html{scroll-behavior:smooth}body{background:var(--d);color:var(--cr);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:#06020C}::-webkit-scrollbar-thumb{background:linear-gradient(#C97B9B,#CBA96A);border-radius:3px}
+@keyframes floatA{0%,100%{transform:translateY(0)translateX(0)scale(1)}30%{transform:translateY(-45px)translateX(25px)scale(1.07)}65%{transform:translateY(-30px)translateX(-15px)scale(.96)}}
+@keyframes floatB{0%,100%{transform:translateY(0)rotate(0)}40%{transform:translateY(-55px)translateX(30px)rotate(180deg)}80%{transform:translateY(-25px)translateX(-25px)rotate(310deg)}}
+@keyframes shimmer{0%{background-position:-300% center}100%{background-position:300% center}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
+@keyframes heroT{from{opacity:0;transform:translateY(70px)skewY(4deg)scale(.95)}to{opacity:1;transform:translateY(0)skewY(0)scale(1)}}
+@keyframes particleUp{0%{opacity:0;transform:translateY(0)translateX(0)}8%{opacity:1}90%{opacity:.8}100%{opacity:0;transform:translateY(-100vh)translateX(20px)}}
+@keyframes rotate{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes rotateR{from{transform:rotate(0)}to{transform:rotate(-360deg)}}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes glow{0%,100%{box-shadow:0 0 20px rgba(212,130,158,.3)}50%{box-shadow:0 0 55px rgba(212,130,158,.7),0 0 90px rgba(203,169,106,.35)}}
+@keyframes pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.12)}}
+@keyframes cardF{0%,100%{transform:perspective(900px)rotateY(0)rotateX(0)translateY(0)}50%{transform:perspective(900px)rotateY(3deg)rotateX(2.5deg)translateY(-9px)}}
+@keyframes stampIn{from{opacity:0;transform:scale(2.5)rotate(-20deg)}to{opacity:1;transform:scale(1)rotate(-12deg)}}
+@keyframes navIn{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes successPop{from{opacity:0;transform:scale(.85)translateY(20px)}to{opacity:1;transform:scale(1)translateY(0)}}
+@keyframes lightLeak{0%,100%{opacity:.3;transform:translateX(-20%)rotate(-15deg)}50%{opacity:.5;transform:translateX(20%)rotate(-10deg)}}
+@keyframes reelPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes testimonialSlide{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes starTwinkle{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.2)}}
+
+.glass{background:rgba(255,255,255,.06);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid rgba(203,169,106,.2);border-radius:22px}
+.glass2{background:rgba(255,255,255,.04);backdrop-filter:blur(16px);border:1px solid rgba(212,130,158,.15);border-radius:16px}
+.glass3{background:rgba(255,255,255,.03);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);border-radius:16px}
+.gt{background:linear-gradient(135deg,#F0B8D0 0%,#E8CB94 45%,#F0B8D0 100%);background-size:250% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 5s linear infinite}
+.t1{font-family:'Cormorant Garamond',serif;font-style:italic}
+.t2{font-family:'Playfair Display',serif}
+.t3{font-family:'DM Sans',sans-serif}
+.btn{background:linear-gradient(135deg,#D4829E,#CBA96A);border:none;border-radius:50px;color:#fff;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:1.5px;padding:14px 34px;position:relative;overflow:hidden;text-transform:uppercase;transition:all .35s ease;display:inline-block}
+.btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);animation:shimmer 2.8s infinite}
+.btn:hover{transform:translateY(-4px);box-shadow:0 18px 50px rgba(212,130,158,.55)}
+.btnO{background:transparent;border:1px solid rgba(212,130,158,.6);border-radius:50px;color:#F0B8D0;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:400;letter-spacing:1.5px;padding:13px 34px;text-transform:uppercase;transition:all .35s ease;display:inline-block}
+.btnO:hover{background:rgba(212,130,158,.1);transform:translateY(-4px);box-shadow:0 10px 35px rgba(212,130,158,.2)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .4s ease;padding:0 clamp(20px,5vw,70px)}
+nav.scrolled{background:rgba(6,2,12,.94);backdrop-filter:blur(24px);border-bottom:1px solid rgba(203,169,106,.12)}
+.navinner{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.navlink{color:rgba(253,245,238,.6);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:400;letter-spacing:2px;text-decoration:none;text-transform:uppercase;transition:color .3s;cursor:pointer;background:none;border:none;padding:0}
+.navlink:hover{color:#F0B8D0}
+.hamburger{background:none;border:none;cursor:pointer;padding:8px;display:none}
+.mobilemenu{display:none;position:fixed;top:72px;left:0;right:0;z-index:999;background:rgba(6,2,12,.97);backdrop-filter:blur(30px);border-bottom:1px solid rgba(203,169,106,.12);padding:24px 30px 32px;animation:navIn .35s ease-out forwards}
+.mobilemenu.open{display:block}
+.mobilelink{display:block;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.05);color:rgba(253,245,238,.6);font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;background:none;width:100%;text-align:left;border-left:none;border-right:none;border-top:none}
+.mobilelink:hover{color:#F0B8D0}
+section{padding:clamp(80px,10vw,130px) clamp(20px,5vw,80px);position:relative;z-index:1}
+.smax{max-width:1300px;margin:0 auto}
+.eyebrow{display:flex;align-items:center;justify-content:center;gap:10px;font-size:11px;letter-spacing:5px;color:rgba(203,169,106,.75);text-transform:uppercase;margin-bottom:16px;font-family:'DM Sans',sans-serif}
+.eyebrow span{width:24px;height:1px;background:rgba(203,169,106,.4);display:inline-block}
+
+/* PHOTO GALLERY */
+.photo-card{position:relative;overflow:hidden;border-radius:18px;cursor:pointer;border:1px solid rgba(255,255,255,.06);transition:transform .4s ease,box-shadow .4s ease}
+.photo-card:hover{transform:scale(1.03);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.photo-card .overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,130,158,.35),rgba(203,169,106,.25));opacity:0;transition:opacity .4s ease;z-index:2}
+.photo-card:hover .overlay{opacity:1}
+.photo-card .label{position:absolute;bottom:0;left:0;right:0;padding:18px;background:linear-gradient(0,rgba(6,2,12,.95),transparent);z-index:3;opacity:1;transition:all .4s ease}
+.photo-card:hover .label{opacity:1}
+.photo-card .photo-icon{position:absolute;top:38%;left:50%;transform:translate(-50%,-50%);opacity:.7;transition:all .4s ease;z-index:4;color:white;font-size:32px}
+.photo-card:hover .photo-icon{opacity:1;transform:translate(-50%,-50%)scale(1.15)}
+
+/* REEL CARDS */
+.reel-card{position:relative;border-radius:20px;overflow:hidden;cursor:pointer;transition:all .4s cubic-bezier(.4,0,.2,1);border:1px solid rgba(255,255,255,.07)}
+.reel-card:hover{transform:translateY(-12px) scale(1.02);box-shadow:0 30px 70px rgba(0,0,0,.6)}
+.reel-card .reel-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.15);backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-size:22px;color:white;padding-left:5px;transition:all .35s ease;z-index:3}
+.reel-card:hover .reel-play{background:rgba(212,130,158,.5);border-color:rgba(240,184,208,.8);transform:translate(-50%,-50%)scale(1.15)}
+.reel-card .reel-info{position:absolute;bottom:0;left:0;right:0;padding:22px 18px;background:linear-gradient(0,rgba(6,2,12,.95) 0%,rgba(6,2,12,.6) 60%,transparent 100%);z-index:3}
+.reel-card .ig-badge{position:absolute;top:14px;right:14px;background:linear-gradient(135deg,#f09433,#dc2743,#bc1888);border-radius:8px;padding:5px 10px;display:flex;align-items:center;gap:6px;z-index:3}
+
+/* SERVICE CARDS */
+.svc-card{animation:cardF 7s ease-in-out infinite;transition:all .4s cubic-bezier(.4,0,.2,1);cursor:pointer}
+.svc-card:hover{animation-play-state:paused;transform:perspective(900px)rotateY(-6deg)rotateX(6deg)translateY(-18px)!important;box-shadow:25px 25px 60px rgba(0,0,0,.6),-8px -8px 25px rgba(212,130,158,.12)!important}
+.svc-card:nth-child(2){animation-delay:-2.3s}.svc-card:nth-child(3){animation-delay:-4.6s}
+.svc-card:nth-child(4){animation-delay:-1.5s}.svc-card:nth-child(5){animation-delay:-3.8s}.svc-card:nth-child(6){animation-delay:-5.1s}
+
+/* TESTIMONIALS */
+.test-card{transition:all .3s ease;cursor:default}
+.test-card:hover{transform:translateY(-6px)}
+.star{color:#E8CB94;animation:starTwinkle 2s ease-in-out infinite}
+.star:nth-child(2){animation-delay:.3s}.star:nth-child(3){animation-delay:.6s}.star:nth-child(4){animation-delay:.9s}.star:nth-child(5){animation-delay:1.2s}
+
+/* BEFORE/AFTER */
+.ba-card{position:relative;overflow:hidden;border-radius:20px;cursor:pointer;border:1px solid rgba(255,255,255,.07)}
+.ba-divider{position:absolute;top:0;bottom:0;width:2px;background:linear-gradient(180deg,transparent,#F0B8D0,#E8CB94,#F0B8D0,transparent);z-index:4;left:50%;transform:translateX(-50%)}
+.ba-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#D4829E,#CBA96A);border:3px solid white;z-index:5;display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:0 4px 20px rgba(212,130,158,.6)}
+
+/* PROMOS */
+.promo-card{position:relative;overflow:hidden;transition:transform .35s ease;cursor:pointer;border-radius:22px}
+.promo-card:hover{transform:translateY(-10px)}
+.promo-glow{position:absolute;inset:-1px;border-radius:24px;background:linear-gradient(135deg,rgba(212,130,158,.4),rgba(203,169,106,.35));opacity:0;transition:opacity .35s ease;z-index:0;filter:blur(2px)}
+.promo-card:hover .promo-glow{opacity:1}
+
+/* CALENDAR */
+.cal-wrap{background:rgba(255,255,255,.06);backdrop-filter:blur(22px);border:1px solid rgba(203,169,106,.2);border-radius:22px;padding:clamp(24px,3vw,36px)}
+.cal-day{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;transition:all .25s ease;font-family:'DM Sans',sans-serif;font-weight:300;border:1px solid transparent;margin:auto}
+.cal-day.avail{color:#E8CB94;border-color:rgba(203,169,106,.3)}.cal-day.avail:hover{background:rgba(203,169,106,.2);transform:scale(1.12)}
+.cal-day.sel{background:linear-gradient(135deg,#D4829E,#CBA96A);color:white;box-shadow:0 6px 22px rgba(212,130,158,.5);transform:scale(1.1)}
+.cal-day.unavail{color:rgba(253,245,238,.2);cursor:default}.cal-day.today{border-color:var(--r);color:#F0B8D0;font-weight:500}
+.time-slot{background:rgba(255,255,255,.05);border:1px solid rgba(203,169,106,.2);border-radius:12px;color:rgba(253,245,238,.65);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;padding:10px 18px;transition:all .25s ease}
+.time-slot:hover{background:rgba(212,130,158,.1);border-color:var(--r);color:#F0B8D0}
+.time-slot.sel{background:linear-gradient(135deg,rgba(212,130,158,.25),rgba(203,169,106,.2));border-color:#CBA96A;color:#E8CB94}
+.inp{background:rgba(255,255,255,.05);border:1px solid rgba(203,169,106,.22);border-radius:12px;color:#FDF5EE;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;padding:14px 18px;transition:all .3s;width:100%}
+.inp:focus{border-color:var(--r);box-shadow:0 0 0 3px rgba(212,130,158,.12)}
+.inp::placeholder{color:rgba(253,245,238,.3)}
+select.inp option{background:#0F051A;color:#FDF5EE}
+
+/* NEWS */
+.news-card{cursor:pointer;transition:all .3s ease;border-radius:22px;overflow:hidden}
+.news-card:hover{transform:translateY(-7px)}
+
+/* FABs */
+.fab-wrap{position:fixed;bottom:28px;right:22px;z-index:9999;display:flex;flex-direction:column;gap:12px;align-items:center}
+.fab{width:58px;height:58px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s ease}
+.fab:hover{transform:translateY(-6px)scale(1.12)!important}
+.fab-wa{background:linear-gradient(135deg,#25D366,#128C7E);box-shadow:0 8px 28px rgba(37,211,102,.45);animation:bounce 3.5s ease-in-out infinite}
+.fab-ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);box-shadow:0 8px 28px rgba(188,24,136,.4);animation:bounce 3.5s ease-in-out infinite;animation-delay:-1.75s}
+.lightbox{position:fixed;inset:0;z-index:2000;background:rgba(6,2,12,.96);backdrop-filter:blur(22px);display:none;align-items:center;justify-content:center;cursor:pointer}
+.lightbox.open{display:flex}
+@media(max-width:900px){
+  .hide-mob{display:none!important}.hamburger{display:block!important}
+  .svc-grid,.promo-grid,.news-grid,.foot-grid,.test-grid{grid-template-columns:1fr!important}
+  .gal-masonry{columns:1!important}.book-grid{grid-template-columns:1fr!important}
+  .about-grid,.loc-grid,.reel-grid{grid-template-columns:1fr!important}
+  .hero-btns{flex-direction:column!important;align-items:center!important}
+}
+@media(max-width:600px){.foot-grid{grid-template-columns:1fr 1fr!important}}
+</style>
+</head>
+<body>
+
+<!-- BG AMBIENCE -->
+<div style="position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden">
+  <div style="position:absolute;width:65vw;height:65vw;border-radius:50%;background:radial-gradient(circle,rgba(150,40,90,.12) 0%,transparent 70%);top:-20vw;right:-20vw;animation:floatA 20s ease-in-out infinite"></div>
+  <div style="position:absolute;width:55vw;height:55vw;border-radius:50%;background:radial-gradient(circle,rgba(170,120,40,.09) 0%,transparent 70%);bottom:-15vw;left:-15vw;animation:floatB 28s ease-in-out infinite"></div>
+  <div style="position:absolute;width:35vw;height:35vw;border-radius:50%;background:radial-gradient(circle,rgba(100,20,70,.08) 0%,transparent 70%);top:40%;left:25%;animation:floatA 35s ease-in-out infinite reverse"></div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="navinner">
+    <div onclick="goTo('hero')" style="cursor:pointer;line-height:1">
+      <div class="t1 gt" style="font-size:clamp(20px,3vw,26px);font-weight:600;letter-spacing:2px">Emeste</div>
+      <div class="t3" style="font-size:9px;letter-spacing:4px;color:rgba(203,169,106,.65);text-transform:uppercase;margin-top:2px">Studio Academy</div>
+    </div>
+    <div class="hide-mob" style="display:flex;gap:28px;align-items:center">
+      <button class="navlink" onclick="goTo('servicios')">Servicios</button>
+      <button class="navlink" onclick="goTo('galeria')">Galería</button>
+      <button class="navlink" onclick="goTo('videos')">Videos</button>
+      <button class="navlink" onclick="goTo('promo')">Promociones</button>
+      <button class="navlink" onclick="goTo('reservas')">Reservas</button>
+      <button class="navlink" onclick="goTo('ubicacion')">Ubicación</button>
+    </div>
+    <button class="btn hide-mob" onclick="goTo('reservas')" style="padding:10px 24px;font-size:11px">Reservar Ahora</button>
+    <button class="hamburger" id="ham" onclick="toggleMenu()">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(253,245,238,.8)" stroke-width="1.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+<div class="mobilemenu" id="mobileMenu">
+  <button class="mobilelink" onclick="goTo('servicios')">Servicios</button>
+  <button class="mobilelink" onclick="goTo('galeria')">Galería</button>
+  <button class="mobilelink" onclick="goTo('videos')">Videos / Reels</button>
+  <button class="mobilelink" onclick="goTo('promo')">Promociones</button>
+  <button class="mobilelink" onclick="goTo('reservas')">Reservas</button>
+  <button class="mobilelink" onclick="goTo('ubicacion')">Ubicación</button>
+  <button class="btn" onclick="goTo('reservas')" style="margin-top:20px;width:100%">Reservar Ahora</button>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="hero" style="min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding-top:72px;padding-left:clamp(20px,5vw,80px);padding-right:clamp(20px,5vw,80px)">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(100,20,60,.4) 0%,rgba(6,2,12,1) 72%)"></div>
+  <div id="particles" style="position:absolute;inset:0;pointer-events:none;overflow:hidden"></div>
+  <div style="position:absolute;width:clamp(300px,58vw,760px);height:clamp(300px,58vw,760px);border-radius:50%;border:1px solid rgba(203,169,106,.07);top:50%;left:50%;transform:translate(-50%,-50%);animation:rotate 65s linear infinite"></div>
+  <div style="position:absolute;width:clamp(220px,42vw,580px);height:clamp(220px,42vw,580px);border-radius:50%;border:1px solid rgba(212,130,158,.05);top:50%;left:50%;transform:translate(-50%,-50%);animation:rotateR 45s linear infinite"></div>
+  <div style="position:absolute;width:clamp(150px,28vw,380px);height:clamp(150px,28vw,380px);border-radius:50%;border:1px dashed rgba(203,169,106,.04);top:50%;left:50%;transform:translate(-50%,-50%);animation:rotate 25s linear infinite reverse"></div>
+  <div style="position:relative;z-index:2;text-align:center;max-width:960px;animation:heroT .9s ease-out forwards">
+    <p class="t3 eyebrow" style="margin-bottom:22px"><span></span>Armonización Facial · Viña del Mar, Chile<span></span></p>
+    <h1 class="t1 gt" style="font-size:clamp(56px,12vw,130px);font-weight:600;line-height:.9;margin-bottom:10px;letter-spacing:-1px">Emeste</h1>
+    <p class="t2" style="font-size:clamp(14px,2.5vw,28px);color:rgba(240,184,208,.65);letter-spacing:8px;text-transform:uppercase;margin-bottom:26px;font-weight:400">Studio Academy</p>
+    <div style="width:90px;height:1px;background:linear-gradient(90deg,transparent,#CBA96A,transparent);margin:0 auto 28px"></div>
+    <p class="t3" style="font-size:clamp(14px,1.6vw,18px);color:rgba(253,245,238,.52);line-height:1.9;max-width:640px;margin:0 auto 44px;font-weight:300">Especialistas en armonización facial con enfoque único y personalizado. Realzamos la belleza de cada persona con elegancia, precisión y pasión — para que salgas más hermosa <em style="color:#F0B8D0;font-style:italic">y más feliz.</em></p>
+    <div class="hero-btns" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fadeUp .9s .4s ease-out both">
+      <button class="btn" onclick="goTo('reservas')">Reservar Cita ✦</button>
+      <button class="btnO" onclick="goTo('galeria')">Ver Resultados</button>
+      <a href="https://wa.me/56965119521" target="_blank" style="text-decoration:none"><button class="btnO" style="border-color:rgba(37,211,102,.5);color:rgba(180,240,180,.9)">💬 WhatsApp</button></a>
+    </div>
+    <div style="margin-top:58px;display:flex;flex-direction:column;align-items:center;gap:8px;animation:pulse 2.5s ease-in-out infinite">
+      <p class="t3" style="font-size:10px;letter-spacing:3px;color:rgba(203,169,106,.4);text-transform:uppercase">Descubrir</p>
+      <div style="width:1px;height:44px;background:linear-gradient(180deg,rgba(203,169,106,.5),transparent)"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section style="background:rgba(255,255,255,.012)">
+  <div class="smax about-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,60px);align-items:center">
+    <div>
+      <p class="t3 eyebrow" style="justify-content:flex-start;margin-bottom:18px"><span></span>Nuestra Esencia</p>
+      <h2 class="t1" style="font-size:clamp(32px,4.5vw,54px);font-weight:500;line-height:1.08;margin-bottom:22px;background:linear-gradient(135deg,#F0B8D0,#E8CB94);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Belleza que nace desde adentro</h2>
+      <p class="t3" style="font-size:clamp(14px,1.4vw,16px);color:rgba(253,245,238,.5);line-height:1.95;margin-bottom:18px;font-weight:300">En Emeste Studio Academy creemos que cada persona tiene una belleza única y especial. Nuestro trabajo es descubrirla, realzarla y celebrarla — sin borrar lo que te hace ser tú.</p>
+      <p class="t3" style="font-size:clamp(14px,1.4vw,16px);color:rgba(253,245,238,.5);line-height:1.95;margin-bottom:38px;font-weight:300">Atendemos hombres y mujeres con la misma dedicación, técnica y amor. Porque la belleza no tiene género, tiene alma.</p>
+      <div style="display:flex;gap:clamp(24px,4vw,50px);flex-wrap:wrap">
+        <div><p class="t1 gt" style="font-size:clamp(28px,4vw,46px);font-weight:600;line-height:1">200+</p><p class="t3" style="font-size:11px;color:rgba(253,245,238,.32);letter-spacing:1px;margin-top:4px;font-weight:300">Clientes felices</p></div>
+        <div><p class="t1 gt" style="font-size:clamp(28px,4vw,46px);font-weight:600;line-height:1">3+</p><p class="t3" style="font-size:11px;color:rgba(253,245,238,.32);letter-spacing:1px;margin-top:4px;font-weight:300">Años de experiencia</p></div>
+        <div><p class="t1 gt" style="font-size:clamp(28px,4vw,46px);font-weight:600;line-height:1">100%</p><p class="t3" style="font-size:11px;color:rgba(253,245,238,.32);letter-spacing:1px;margin-top:4px;font-weight:300">Resultados naturales</p></div>
+      </div>
+    </div>
+    <div class="glass" style="padding:clamp(28px,4vw,48px);position:relative;overflow:hidden">
+      <div style="position:absolute;top:-30px;right:-30px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(212,130,158,.14),transparent);pointer-events:none"></div>
+      <div style="position:absolute;bottom:-20px;left:-20px;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,rgba(203,169,106,.11),transparent);pointer-events:none"></div>
+      <p class="t1" style="font-size:clamp(18px,2.4vw,27px);font-weight:500;color:rgba(240,184,208,.9);margin-bottom:26px;line-height:1.55">"Mi misión es que cada persona salga no solo más bella, sino también más feliz, más segura y con ganas de mostrarle al mundo lo hermoso que es."</p>
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
+        <div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#D4829E,#CBA96A);display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 8px 24px rgba(212,130,158,.45);flex-shrink:0">✦</div>
+        <div><p class="t2" style="font-size:15px;color:#F0B8D0;font-weight:500">Emeste Studio</p><p class="t3" style="font-size:12px;color:rgba(203,169,106,.65);letter-spacing:1px">Fundadora & Artista Facial</p></div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <span class="t3" style="background:rgba(212,130,158,.12);border:1px solid rgba(212,130,158,.25);color:#F0B8D0;font-size:11px;padding:5px 14px;border-radius:50px;letter-spacing:1px">Armonización Facial</span>
+        <span class="t3" style="background:rgba(203,169,106,.12);border:1px solid rgba(203,169,106,.25);color:#E8CB94;font-size:11px;padding:5px 14px;border-radius:50px;letter-spacing:1px">Bótox</span>
+        <span class="t3" style="background:rgba(212,130,158,.12);border:1px solid rgba(212,130,158,.25);color:#F0B8D0;font-size:11px;padding:5px 14px;border-radius:50px;letter-spacing:1px">Rellenos</span>
+        <span class="t3" style="background:rgba(203,169,106,.12);border:1px solid rgba(203,169,106,.25);color:#E8CB94;font-size:11px;padding:5px 14px;border-radius:50px;letter-spacing:1px">Micropigmentación</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SERVICES ═══════════ -->
+<section id="servicios">
+  <div class="smax">
+    <div style="text-align:center;margin-bottom:clamp(40px,5vw,64px)">
+      <div class="eyebrow"><span></span>Especialidades<span></span></div>
+      <h2 class="t1 gt" style="font-size:clamp(34px,5vw,60px);font-weight:500;line-height:1.08;margin-bottom:16px">Nuestros Servicios</h2>
+      <p class="t3" style="font-size:clamp(14px,1.4vw,16px);color:rgba(253,245,238,.42);line-height:1.8;font-weight:300;max-width:600px;margin:0 auto">Cada tratamiento es diseñado exclusivamente para ti, con técnica de alto nivel y los mejores productos del mercado.</p>
+    </div>
+    <div class="svc-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px" id="svcGrid"></div>
+    <div style="text-align:center;margin-top:48px"><button class="btnO" onclick="goTo('reservas')">Reservar Tratamiento ✦</button></div>
+  </div>
+</section>
+
+<!-- ═══════════ GALLERY ═══════════ -->
+<section id="galeria" style="background:rgba(255,255,255,.012)">
+  <div class="smax">
+    <div style="text-align:center;margin-bottom:clamp(40px,5vw,64px)">
+      <div class="eyebrow"><span></span>Resultados Reales<span></span></div>
+      <h2 class="t1 gt" style="font-size:clamp(34px,5vw,60px);font-weight:500;line-height:1.08;margin-bottom:16px">Galería de Arte Facial</h2>
+      <p class="t3" style="font-size:clamp(14px,1.4vw,16px);color:rgba(253,245,238,.42);line-height:1.8;font-weight:300;max-width:600px;margin:0 auto">Transformaciones reales, belleza auténtica. Cada resultado habla por sí solo.</p>
+    </div>
+    <!-- Masonry-style grid -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px" id="galGrid"></div>
+    <!-- Instagram CTA -->
+    <div class="glass" style="margin-top:32px;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#f09433,#dc2743,#bc1888);display:flex;align-items:center;justify-content:center">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </div>
+        <div><p class="t2" style="font-size:16px;color:#F0B8D0;font-weight:500">@emeste_studio_academy</p><p class="t3" style="font-size:12px;color:rgba(253,245,238,.4);letter-spacing:1px">Síguenos para ver más resultados y novedades</p></div>
+      </div>
+      <a href="https://instagram.com/emeste_studio_academy" target="_blank" style="text-decoration:none"><button class="btn" style="font-size:12px;padding:12px 26px">Ver Instagram ↗</button></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ VIDEOS / REELS ═══════════ -->
+<section id="videos">
+  <div class="smax">
+    <div style="text-align:center;margin-bottom:clamp(40px,5vw,64px)">
+      <div class="eyebrow"><span></span>Instagram Reels<span></span></div>
+      <h2 class="t1 gt" style="font-size:clamp(34px,5vw,60px);font-weight:500;line-height:1.08;margin-bottom:16px">Videos & Reels</h2>
+      <p class="t3" style="font-size:clamp(14px,1.4vw,16px);color:rgba(253,245,238,.42);line-height:1.8;font-weight:300;max-width:600px;margin:0 auto">Mira nuestros procesos, resultados y la experiencia completa en Emeste Studio — directo desde nuestro Instagram.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;align-items:start" id="reelGrid"></div>
+    <div style="margin-top:32px;text-align:center">
+      <a href="https://instagram.com/emeste_studio_academy" target="_blank" style="text-decoration:none"><button class="btn">Ver todos los Reels en Instagram ✦</button></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ BEFORE/AFTER ═══════════ -->
+<section style="background:rgba(255,255,255,.012)">
+  <div class="smax">
+    <div style="text-align:center;margin-bottom:clamp(40px,5vw,64px)">
+      <div class="eyebrow"><span></span>Transformaciones<span></span></div>
+      <h2 class="t1 gt" style="font-size:clamp(34px,5vw,60px);font-weight:500;line-height:1.08;margin-bottom:16px">Antes & Después</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px" id="baGrid"></div>
+  </div>
+</section>
+
+<!-- ═══════════ TESTIMONIALS ═══════════ -->
+<section>
+  <div class="smax">
+    <div style="text-align:center;margin-bottom:clamp(40px,5vw,64px)">
+      <div class="eyebrow"><span></span>Lo que dicen<span></span></div>
+      <h2 class="t1 gt" style="font-size:clamp(34px,5vw,60px);font-weight:500;line-height:1.08;margin-bottom:16px">Clientas que Confían</h2>
+    </div>
+    <div class="test-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px" id="testGrid"></div>
+  </div>
+</section>
+
+<!-- ═══════════ PROMOS ═══════════ -->
+<section id="promo" style="background:rgba(255,255,255,.012)">
+  <div class="smax">
+    <div style="text-align:center;margin-bottom:clamp(40px,5vw,64px)">
+      <div class="eyebrow"><span></span>Ofertas Especiales<span></span></div>
+      <h2 class="t1 gt" style="font-size:clamp(34px,5vw,60px);font-weight:500;line-height:1.08;margin-bottom:16px">Promociones del Mes</h2>
+      <p class="t3" style="font-size:clamp(14px,1.4vw,16px);color:rgba(253,245,238,.42);line-height:1.8;font-weight:300;max-width:600px;margin:0 auto">Tratamientos premium a precios únicos. Cupos limitados.</p>
+    </div>
+    <div class="promo-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px" id="promoGrid"></div>
+  </div>
+</section>
+
+<!-- ═══════════ BOOKING ═══════════ -->
+<section id="reservas">
+  <div class="smax">
+    <div style="text-align:center;margin-bottom:clamp(40px,5vw,64px)">
+      <div class="eyebrow"><span></span>Agenda Online<span></span></div>
+      <h2 class="t1 gt" style="font-size:clamp(34px,5vw,60px);font-weight:500;line-height:1.08;margin-bottom:16px">Reserva tu Cita</h2>
+      <p class="t3" style="font-size:clamp(14px,1.4vw,16px);color:rgba(253,245,238,.42);line-height:1.8;font-weight:300;max-width:600px;margin:0 auto">Selecciona el día y hora. Confirmamos en menos de 24 horas vía WhatsApp.</p>
+    </div>
+    <div id="bookingWrap"></div>
+  </div>
+</section>
+
+<!-- ═══════════ LOCATION ═══════════ -->
+<section id="ubicacion" style="background:rgba(255,255,255,.012)">
+  <div class="smax">
+    <div style="text-align:center;margin-bottom:clamp(40px,5vw,64px)">
+      <div class="eyebrow"><span></span>Encuéntranos<span></span></div>
+      <h2 class="t1 gt" style="font-size:clamp(34px,5vw,60px);font-weight:500;line-height:1.08;margin-bottom:16px">Nuestra Ubicación</h2>
+    </div>
+    <div class="loc-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch">
+      <div style="border-radius:22px;overflow:hidden;border:1px solid rgba(203,169,106,.17);min-height:400px;position:relative">
+        <iframe title="Emeste" src="https://maps.google.com/maps?q=Viña+del+Mar+Chile&z=14&output=embed" width="100%" height="100%" style="min-height:400px;border:none;filter:invert(.85)hue-rotate(180deg)brightness(.82)saturate(.65)"></iframe>
+        <div style="position:absolute;top:14px;left:14px;background:rgba(6,2,12,.9);backdrop-filter:blur(14px);border:1px solid rgba(203,169,106,.25);border-radius:10px;padding:9px 14px;display:flex;gap:7px;align-items:center">
+          <span>📍</span><span class="t3" style="font-size:12px;color:#E8CB94;letter-spacing:1px">Viña del Mar, Chile</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px" id="contactCards"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ NEWS ═══════════ -->
+<section id="noticias">
+  <div class="smax">
+    <div style="text-align:center;margin-bottom:clamp(40px,5vw,64px)">
+      <div class="eyebrow"><span></span>Blog & Noticias<span></span></div>
+      <h2 class="t1 gt" style="font-size:clamp(34px,5vw,60px);font-weight:500;line-height:1.08;margin-bottom:16px">Últimas Novedades</h2>
+    </div>
+    <div class="news-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px" id="newsGrid"></div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer style="position:relative;z-index:1;padding:clamp(60px,8vw,100px) clamp(20px,5vw,80px) 40px;background:rgba(6,2,12,.99);border-top:1px solid rgba(203,169,106,.1)">
+  <div style="max-width:1300px;margin:0 auto">
+    <div class="foot-grid" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:clamp(20px,4vw,48px);margin-bottom:clamp(40px,5vw,60px)">
+      <div>
+        <div style="margin-bottom:18px"><div class="t1 gt" style="font-size:clamp(22px,3vw,30px);font-weight:600;letter-spacing:2px">Emeste</div><div class="t3" style="font-size:9px;letter-spacing:5px;color:rgba(203,169,106,.55);text-transform:uppercase">Studio Academy</div></div>
+        <p class="t3" style="font-size:14px;color:rgba(253,245,238,.35);line-height:1.85;margin-bottom:22px;max-width:260px;font-weight:300">Clínica de estética profesional especializada en armonización facial. Tu belleza, nuestra pasión.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="https://instagram.com/emeste_studio_academy" target="_blank" style="text-decoration:none"><button style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(240,148,51,.2),rgba(188,24,136,.2));border:1px solid rgba(188,24,136,.3);cursor:pointer;font-size:15px;transition:all .3s" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">📸</button></a>
+          <a href="https://facebook.com/Emestestudioacademy" target="_blank" style="text-decoration:none"><button style="width:40px;height:40px;border-radius:50%;background:rgba(24,119,242,.15);border:1px solid rgba(24,119,242,.25);cursor:pointer;font-size:15px;transition:all .3s" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">📘</button></a>
+          <a href="https://wa.me/56965119521" target="_blank" style="text-decoration:none"><button style="width:40px;height:40px;border-radius:50%;background:rgba(37,211,102,.15);border:1px solid rgba(37,211,102,.25);cursor:pointer;font-size:15px;transition:all .3s" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">💬</button></a>
+        </div>
+      </div>
+      <div>
+        <p class="t2" style="font-size:14px;font-weight:500;color:rgba(240,184,208,.8);margin-bottom:16px;letter-spacing:1px">Servicios</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <button class="navlink" onclick="goTo('servicios')" style="text-align:left;font-size:13px;letter-spacing:1px">Armonización Facial</button>
+          <button class="navlink" onclick="goTo('servicios')" style="text-align:left;font-size:13px;letter-spacing:1px">Bótox Preventivo</button>
+          <button class="navlink" onclick="goTo('servicios')" style="text-align:left;font-size:13px;letter-spacing:1px">Rellenos Labiales</button>
+          <button class="navlink" onclick="goTo('servicios')" style="text-align:left;font-size:13px;letter-spacing:1px">Micropigmentación</button>
+          <button class="navlink" onclick="goTo('servicios')" style="text-align:left;font-size:13px;letter-spacing:1px">Hidratación Profunda</button>
+        </div>
+      </div>
+      <div>
+        <p class="t2" style="font-size:14px;font-weight:500;color:rgba(240,184,208,.8);margin-bottom:16px;letter-spacing:1px">Navegación</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <button class="navlink" onclick="goTo('galeria')" style="text-align:left;font-size:13px;letter-spacing:1px">Galería</button>
+          <button class="navlink" onclick="goTo('videos')" style="text-align:left;font-size:13px;letter-spacing:1px">Videos & Reels</button>
+          <button class="navlink" onclick="goTo('promo')" style="text-align:left;font-size:13px;letter-spacing:1px">Promociones</button>
+          <button class="navlink" onclick="goTo('noticias')" style="text-align:left;font-size:13px;letter-spacing:1px">Blog</button>
+          <button class="navlink" onclick="goTo('reservas')" style="text-align:left;font-size:13px;letter-spacing:1px">Reservas</button>
+        </div>
+      </div>
+      <div>
+        <p class="t2" style="font-size:14px;font-weight:500;color:rgba(240,184,208,.8);margin-bottom:16px;letter-spacing:1px">Contacto</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://wa.me/56965119521" target="_blank" class="navlink" style="font-size:13px;letter-spacing:1px;text-decoration:none">📱 +56 9 6511 9521</a>
+          <a href="https://instagram.com/emeste_studio_academy" target="_blank" class="navlink" style="font-size:13px;letter-spacing:1px;text-decoration:none">📸 @emeste_studio_academy</a>
+          <button class="navlink" onclick="goTo('ubicacion')" style="text-align:left;font-size:13px;letter-spacing:1px">📍 Viña del Mar</button>
+          <span class="t3" style="font-size:12px;color:rgba(253,245,238,.28);letter-spacing:.5px">Lun–Sáb: 9:00–18:00</span>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+      <p class="t3" style="font-size:12px;color:rgba(253,245,238,.2);letter-spacing:1px">© 2026 Emeste Studio Academy. Todos los derechos reservados.</p>
+      <p class="t3" style="font-size:12px;color:rgba(203,169,106,.3);letter-spacing:1px">Hecho con <span style="color:#D4829E">♥</span> para una princesa hermosa ✦</p>
+    </div>
+  </div>
+</footer>
+
+<!-- FABs -->
+<div class="fab-wrap">
+  <a href="https://wa.me/56965119521" target="_blank" style="text-decoration:none"><button class="fab fab-wa" title="WhatsApp +56 9 6511 9521"><svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></button></a>
+  <a href="https://instagram.com/emeste_studio_academy" target="_blank" style="text-decoration:none"><button class="fab fab-ig" title="Instagram @emeste_studio_academy"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></button></a>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <div class="glass" style="padding:50px 60px;border-radius:24px;text-align:center;max-width:460px;margin:20px;cursor:default" onclick="event.stopPropagation()">
+    <div id="lbIcon" style="font-size:55px;margin-bottom:16px"></div>
+    <h3 class="t2" id="lbTitle" style="font-size:21px;color:#F0B8D0;margin-bottom:10px"></h3>
+    <p class="t3" style="font-size:14px;color:rgba(253,245,238,.42);line-height:1.7;margin-bottom:24px">Visita nuestro Instagram para ver los resultados reales de este tratamiento.</p>
+    <a href="https://instagram.com/emeste_studio_academy" target="_blank" style="text-decoration:none"><button class="btn">Ver en Instagram ↗</button></a>
+    <button onclick="closeLightbox()" style="display:block;width:100%;margin-top:12px;background:none;border:none;color:rgba(253,245,238,.3);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;padding:8px">Cerrar</button>
+  </div>
+</div>
+
+<script>
+// ─── DATA ───────────────────────────────────────
+const SERVICES=[
+  {icon:"◈",title:"Armonización Facial",sub:"Belleza integral y natural",desc:"Tratamiento premium que equilibra las proporciones faciales con técnica avanzada, resaltando tu belleza única.",dur:"90 min",price:"Desde $150.000",ac:"#F0B8D0"},
+  {icon:"✦",title:"Bótox Preventivo",sub:"Juventud sin límites",desc:"Aplicación precisa de toxina botulínica para suavizar expresiones y prevenir líneas de expresión de forma elegante.",dur:"45 min",price:"Desde $120.000",ac:"#E8CB94"},
+  {icon:"❋",title:"Rellenos Labiales",sub:"Labios perfectamente definidos",desc:"Volumen y definición labial con ácido hialurónico premium para un resultado luminoso y completamente natural.",dur:"60 min",price:"Desde $100.000",ac:"#F0B8D0"},
+  {icon:"✧",title:"Diseño de Cejas",sub:"Marco perfecto para tu mirada",desc:"Diseño personalizado con análisis de geometría facial para resaltar tu mirada con técnicas de alta precisión.",dur:"75 min",price:"Desde $80.000",ac:"#E8CB94"},
+  {icon:"⟡",title:"Micropigmentación",sub:"Belleza que perdura",desc:"Técnica semipermanente para definir cejas, labios y delineado con pigmentos premium y resultados duraderos.",dur:"120 min",price:"Desde $200.000",ac:"#F0B8D0"},
+  {icon:"✿",title:"Hidratación Profunda",sub:"Luz y vitalidad en tu piel",desc:"Tratamiento rejuvenecedor con tecnología avanzada e ingredientes activos para una piel radiante y llena de vida.",dur:"60 min",price:"Desde $75.000",ac:"#E8CB94"}
+];
+
+// Gallery: rich multi-layer gradient "photo" cards
+const GALLERY=[
+  {img:"https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=85&fit=crop",bg:"linear-gradient(155deg,#5A1535,#8B2252)",icon:"◈",title:"Armonización Facial",sub:"Resultados naturales",tall:true},
+  {img:"https://images.unsplash.com/photo-1522337360429-a1b7208df8c4?w=600&q=85&fit=crop",bg:"linear-gradient(145deg,#2A1045,#4A1870)",icon:"❋",title:"Rellenos Labiales",sub:"Volumen & definición",tall:false},
+  {img:"https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&q=85&fit=crop",bg:"linear-gradient(135deg,#1A2840,#2A4065)",icon:"✧",title:"Diseño de Cejas",sub:"Marco perfecto",tall:false},
+  {img:"https://images.unsplash.com/photo-1512290923640-7d5571cd0bf4?w=600&q=85&fit=crop",bg:"linear-gradient(150deg,#3D1225,#6B2040)",icon:"✦",title:"Antes & Después",sub:"Transformaciones reales",tall:false},
+  {img:"https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=85&fit=crop",bg:"linear-gradient(145deg,#250840,#401565)",icon:"⟡",title:"Micropigmentación",sub:"Belleza que perdura",tall:true},
+  {img:"https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=85&fit=crop",bg:"linear-gradient(140deg,#1A3028,#2A5040)",icon:"✿",title:"Hidratación Profunda",sub:"Piel radiante",tall:false},
+  {img:"https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=85&fit=crop",bg:"linear-gradient(145deg,#3A1018,#5A1825)",icon:"◉",title:"Bótox Preventivo",sub:"Suavidad natural",tall:false},
+  {img:"https://images.unsplash.com/photo-1597214268964-197f43cfe7b5?w=600&q=85&fit=crop",bg:"linear-gradient(135deg,#25103A,#401860)",icon:"✺",title:"Tratamiento Premium",sub:"Resultado estrella",tall:false},
 ];
 
 // Reels / Videos
