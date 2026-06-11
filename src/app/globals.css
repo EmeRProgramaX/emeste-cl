@@ -219,6 +219,34 @@ h2, h3 { font-weight: 800; }
   animation: heroGradientPulse 4.8s ease-in-out infinite;
 }
 
+.attention-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(90deg, #ec008c, #ff2f6d, #ec008c);
+  background-size: 220% 100%;
+  box-shadow: 0 0 24px rgba(236,0,140,.50), 0 0 64px rgba(236,0,140,.22);
+  animation: attentionPulse 1.9s ease-in-out infinite, attentionGradient 3.5s linear infinite;
+}
+
+.attention-cta::before {
+  content: "";
+  position: absolute;
+  inset: -55%;
+  z-index: -1;
+  background: conic-gradient(from 180deg, transparent, rgba(255,255,255,.55), rgba(236,0,140,.75), transparent);
+  animation: attentionSpin 2.8s linear infinite;
+}
+
+.attention-cta::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(236,0,140,.96), rgba(255,47,109,.96));
+}
+
 .bevel-title-shell {
   position: relative;
   isolation: isolate;
@@ -289,6 +317,20 @@ article:hover {
   50% { filter: drop-shadow(0 24px 26px rgba(0,0,0,.62)) drop-shadow(0 0 58px rgba(236,0,140,.55)); }
 }
 
+@keyframes attentionPulse {
+  0%, 100% { transform: translateZ(0) scale(1); box-shadow: 0 0 24px rgba(236,0,140,.50), 0 0 64px rgba(236,0,140,.22); }
+  50% { transform: translate3d(0,-2px,0) scale(1.055); box-shadow: 0 0 36px rgba(236,0,140,.78), 0 0 92px rgba(236,0,140,.38); }
+}
+
+@keyframes attentionGradient {
+  from { background-position: 0% 50%; }
+  to { background-position: 220% 50%; }
+}
+
+@keyframes attentionSpin {
+  to { transform: rotate(360deg); }
+}
+
 @keyframes emesteSpin {
   to { transform: rotate(360deg); }
 }
@@ -299,7 +341,9 @@ article:hover {
   .glow-3d:hover,
   article:hover,
   .hero-retro-title,
-  .hero-retro-title .accent {
+  .hero-retro-title .accent,
+  .attention-cta,
+  .attention-cta::before {
     animation: none;
     transform: none;
   }
