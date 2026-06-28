@@ -1,7 +1,6 @@
 import {
   ArrowRight,
   BadgeCheck,
-  CalendarCheck,
   Check,
   Clock,
   Code2,
@@ -13,12 +12,11 @@ import {
   ShieldCheck,
   Sparkles,
   Target,
-  Workflow,
 } from "lucide-react";
 import { FloatingActions } from "@/components/FloatingActions";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { buildWhatsappUrl, commercialPackages, siteConfig } from "@/data/emeste";
+import { buildWhatsappUrl, commercialPackages } from "@/data/emeste";
 
 const heroSeals = ["Revisión gratis", "Respuesta por WhatsApp", "Entrega rápida", "Desde $49.000"];
 
@@ -33,7 +31,7 @@ const services = [
     icon: MonitorSmartphone,
     title: "Landing Express",
     description:
-      "Creamos una página simple y profesional para enviar clientes desde Facebook o Instagram directo a tu WhatsApp.",
+      "Creamos una página simple y profesional para convertir visitas en consultas directas por WhatsApp.",
   },
   {
     icon: Target,
@@ -51,7 +49,7 @@ const services = [
     icon: Code2,
     title: "Software y sistemas",
     description:
-      "Si tu negocio necesita algo más grande, desarrollamos sistemas, POS, reservas, inventario y procesos internos.",
+      "Desarrollamos sistemas, POS, reservas, inventario, reportes y procesos internos para empresas.",
   },
   {
     icon: Headphones,
@@ -65,10 +63,10 @@ const caseIndicators = ["Sistema real entregado", "Cliente en operación", "Cont
 
 const processSteps = [
   "Me escribes por WhatsApp",
-  "Reviso tu negocio",
-  "Te digo qué conviene",
+  "Analizo tu empresa",
+  "Detecto qué necesitas",
+  "Te recomiendo un servicio",
   "Definimos el plan",
-  "Pagas reserva",
   "Entrego y ajustamos",
 ];
 
@@ -81,21 +79,28 @@ const clientTypes = [
   "Profesionales independientes",
 ];
 
+const diagnosticQuestions = [
+  "¿Tu empresa presenta bien sus servicios?",
+  "¿Tu WhatsApp responde y filtra clientes?",
+  "¿Tienes una página web profesional?",
+  "¿Tu negocio necesita captar clientes o automatizar procesos?",
+];
+
 export default function Home() {
   const mainWhatsappUrl = buildWhatsappUrl(
-    "Hola EMESTÉ, vengo desde Facebook y quiero una revisión gratis para saber cómo conseguir más clientes por WhatsApp.",
+    "Hola EMESTÉ, quiero una revisión gratis para evaluar mi empresa y saber qué servicio digital me conviene. Mi negocio se dedica a:"
   );
   const expressWhatsappUrl = buildWhatsappUrl(
-    "Hola EMESTÉ, quiero el Pack WhatsApp + Instagram desde $49.000 CLP.",
+    "Hola EMESTÉ, quiero evaluar mi empresa y conocer el Pack WhatsApp + Instagram desde $49.000 CLP."
   );
   const landingWhatsappUrl = buildWhatsappUrl(
-    "Hola EMESTÉ, quiero una Landing Express para enviar clientes desde Facebook a WhatsApp.",
+    "Hola EMESTÉ, quiero evaluar mi empresa y cotizar una Landing Express para captar más clientes por WhatsApp."
   );
   const caseUrl = buildWhatsappUrl(
-    "Hola EMESTÉ, vi el caso real de software/POS y quiero una solución similar para mi negocio.",
+    "Hola EMESTÉ, quiero evaluar una solución de software, POS o automatización para mi negocio."
   );
   const finalWhatsappUrl = buildWhatsappUrl(
-    "Hola EMESTÉ, quiero que revisen mi negocio y me digan qué solución me conviene.",
+    "Hola EMESTÉ, quiero que evalúen mi empresa y me recomienden el servicio digital más conveniente."
   );
 
   return (
@@ -115,38 +120,25 @@ export default function Home() {
               <span>Consigue más</span>
               <span className="accent">clientes por</span>
               <span className="accent">WhatsApp</span>
-              <span>desde Facebook</span>
+              <span>con tu página web</span>
             </h1>
 
             <p className="mt-8 max-w-3xl text-base leading-8 text-zinc-300 sm:text-lg">
-              En EMESTÉ revisamos tu negocio y te ayudamos a mejorar Instagram, WhatsApp y tu página web para que las personas entiendan rápido qué vendes y te escriban directo.
+              En EMESTÉ revisamos tu empresa y te ayudamos a mejorar tu presencia digital, página web, WhatsApp y procesos internos para que más personas entiendan qué vendes y te escriban directo.
             </p>
 
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-              <a
-                href={mainWhatsappUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="emeste-button inline-flex items-center justify-center gap-2 rounded-2xl bg-pink-600 px-7 py-4 text-sm font-extrabold uppercase tracking-[0.1em] text-white shadow-[0_0_40px_rgba(236,0,140,0.45)] transition hover:-translate-y-0.5 hover:bg-pink-500"
-              >
+              <a href={mainWhatsappUrl} target="_blank" rel="noreferrer" className="emeste-button inline-flex items-center justify-center gap-2 rounded-2xl bg-pink-600 px-7 py-4 text-sm font-extrabold uppercase tracking-[0.1em] text-white shadow-[0_0_40px_rgba(236,0,140,0.45)] transition hover:-translate-y-0.5 hover:bg-pink-500">
                 Revisar mi negocio gratis <MessageCircle size={18} />
               </a>
-              <a
-                href={expressWhatsappUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-7 py-4 text-sm font-extrabold uppercase tracking-[0.1em] text-white backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-white/15"
-              >
+              <a href={expressWhatsappUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-7 py-4 text-sm font-extrabold uppercase tracking-[0.1em] text-white backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-white/15">
                 Ver pack desde $49.000 <ArrowRight size={18} />
               </a>
             </div>
 
             <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
               {heroSeals.map((seal) => (
-                <span
-                  key={seal}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.07] px-4 py-2 text-xs font-bold text-zinc-200 backdrop-blur-xl"
-                >
+                <span key={seal} className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.07] px-4 py-2 text-xs font-bold text-zinc-200 backdrop-blur-xl">
                   <Check size={14} className="text-pink-300" /> {seal}
                 </span>
               ))}
@@ -158,26 +150,16 @@ export default function Home() {
               <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-pink-300">Diagnóstico rápido</p>
               <h2 className="mt-4 text-3xl font-extrabold tracking-[-0.04em] sm:text-4xl">Primero vemos qué necesitas. Después te vendo lo correcto.</h2>
               <p className="mt-5 leading-7 text-zinc-300">
-                No necesitas pagar por algo grande si tu negocio solo requiere ordenar WhatsApp, mejorar Instagram o tener una landing simple.
+                No necesitas pagar por algo grande si tu negocio solo requiere ordenar WhatsApp, crear una landing, mejorar su imagen o automatizar un proceso específico.
               </p>
               <div className="mt-6 grid gap-3">
-                {[
-                  "¿Tu Instagram explica bien lo que vendes?",
-                  "¿Tu WhatsApp responde y filtra clientes?",
-                  "¿Tienes una página para enviar tráfico desde Facebook?",
-                  "¿Tu negocio necesita un sistema o solo captar más consultas?",
-                ].map((item) => (
+                {diagnosticQuestions.map((item) => (
                   <span key={item} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.06] p-3 text-sm font-bold text-zinc-200">
                     <BadgeCheck size={18} className="mt-0.5 shrink-0 text-pink-300" /> {item}
                   </span>
                 ))}
               </div>
-              <a
-                href={mainWhatsappUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-pink-600 via-fuchsia-600 to-red-600 px-6 py-4 text-sm font-extrabold uppercase tracking-[0.1em] text-white shadow-[0_0_45px_rgba(236,0,140,0.45)] transition hover:-translate-y-1 hover:scale-[1.01]"
-              >
+              <a href={mainWhatsappUrl} target="_blank" rel="noreferrer" className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-pink-600 via-fuchsia-600 to-red-600 px-6 py-4 text-sm font-extrabold uppercase tracking-[0.1em] text-white shadow-[0_0_45px_rgba(236,0,140,0.45)] transition hover:-translate-y-1 hover:scale-[1.01]">
                 Hablar ahora por WhatsApp <MessageCircle size={18} />
               </a>
             </div>
@@ -198,10 +180,7 @@ export default function Home() {
             {services.map((service) => {
               const Icon = service.icon;
               return (
-                <article
-                  key={service.title}
-                  className="group rounded-[1.5rem] border border-white/10 bg-white/[0.07] p-6 shadow-xl shadow-black/20 backdrop-blur-xl transition hover:-translate-y-1 hover:border-pink-300/50 hover:bg-white/[0.1]"
-                >
+                <article key={service.title} className="group rounded-[1.5rem] border border-white/10 bg-white/[0.07] p-6 shadow-xl shadow-black/20 backdrop-blur-xl transition hover:-translate-y-1 hover:border-pink-300/50 hover:bg-white/[0.1]">
                   <Icon className="text-pink-300" size={30} />
                   <h3 className="mt-5 text-xl font-extrabold tracking-[-0.025em]">{service.title}</h3>
                   <p className="mt-4 leading-7 text-zinc-300">{service.description}</p>
@@ -218,7 +197,7 @@ export default function Home() {
             <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-pink-300">Oferta directa</p>
             <h2 className="title-3d mt-4 text-3xl font-extrabold tracking-[-0.04em] sm:text-5xl">Elige un punto de partida simple.</h2>
             <p className="mt-5 text-lg leading-8 text-zinc-300">
-              Si vienes desde Facebook o Marketplace, puedes partir con una revisión gratis y elegir el servicio que más sentido tenga para tu negocio.
+              Puedes partir con una revisión gratis para evaluar tu empresa y elegir el servicio que más sentido tenga para tu negocio.
             </p>
           </div>
           <div className="mt-10 grid gap-5 lg:grid-cols-4">
@@ -234,12 +213,7 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
-                <a
-                  href={plan.name.includes("Landing") ? landingWhatsappUrl : expressWhatsappUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-7 inline-flex items-center justify-center gap-2 rounded-2xl border border-pink-300/40 bg-pink-600/20 px-5 py-3 text-xs font-extrabold uppercase tracking-[0.1em] text-white transition hover:-translate-y-0.5 hover:bg-pink-600"
-                >
+                <a href={plan.name.includes("Landing") ? landingWhatsappUrl : expressWhatsappUrl} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center justify-center gap-2 rounded-2xl border border-pink-300/40 bg-pink-600/20 px-5 py-3 text-xs font-extrabold uppercase tracking-[0.1em] text-white transition hover:-translate-y-0.5 hover:bg-pink-600">
                   Consultar por WhatsApp <MessageCircle size={16} />
                 </a>
               </article>
@@ -281,12 +255,7 @@ export default function Home() {
                 </span>
               ))}
             </div>
-            <a
-              href={caseUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="emeste-button mt-8 inline-flex items-center justify-center gap-2 rounded-2xl border border-pink-300/40 bg-gradient-to-r from-pink-600 via-fuchsia-600 to-red-600 px-6 py-4 text-sm font-extrabold uppercase tracking-[0.1em] text-white shadow-[0_0_45px_rgba(236,0,140,0.45)] transition hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_0_70px_rgba(236,0,140,0.75)]"
-            >
+            <a href={caseUrl} target="_blank" rel="noreferrer" className="emeste-button mt-8 inline-flex items-center justify-center gap-2 rounded-2xl border border-pink-300/40 bg-gradient-to-r from-pink-600 via-fuchsia-600 to-red-600 px-6 py-4 text-sm font-extrabold uppercase tracking-[0.1em] text-white shadow-[0_0_45px_rgba(236,0,140,0.45)] transition hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_0_70px_rgba(236,0,140,0.75)]">
               Quiero una solución similar <MessageCircle size={18} />
             </a>
           </div>
@@ -306,9 +275,7 @@ export default function Home() {
             <div className="grid gap-3 sm:grid-cols-2">
               {processSteps.map((step, index) => (
                 <div key={step} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.07] p-4 backdrop-blur-xl">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-pink-600/20 text-sm font-extrabold text-pink-100">
-                    {index + 1}
-                  </span>
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-pink-600/20 text-sm font-extrabold text-pink-100">{index + 1}</span>
                   <span className="font-extrabold">{step}</span>
                 </div>
               ))}
@@ -322,24 +289,11 @@ export default function Home() {
           <Sparkles className="mx-auto text-pink-200" size={34} />
           <h2 className="title-3d mt-5 text-3xl font-extrabold tracking-[-0.04em] sm:text-5xl">¿Quieres que revise tu negocio ahora?</h2>
           <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-zinc-300">
-            Escríbeme por WhatsApp. Te digo si te conviene partir con Instagram + WhatsApp, una landing express, una página pro o una solución más avanzada.
+            Escríbeme por WhatsApp. Analizo tu empresa y te digo si te conviene una página web, WhatsApp + Instagram, una landing, software, POS o automatización.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <a
-              href={finalWhatsappUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-pink-600 px-7 py-4 text-sm font-extrabold uppercase tracking-[0.1em] text-white transition hover:-translate-y-0.5 hover:bg-pink-500"
-            >
+            <a href={finalWhatsappUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-pink-600 px-7 py-4 text-sm font-extrabold uppercase tracking-[0.1em] text-white transition hover:-translate-y-0.5 hover:bg-pink-500">
               Escribir por WhatsApp <MessageCircle size={18} />
-            </a>
-            <a
-              href={siteConfig.calendarUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-7 py-4 text-sm font-extrabold uppercase tracking-[0.1em] text-white transition hover:-translate-y-0.5 hover:bg-white/15"
-            >
-              Agendar asesoría <CalendarCheck size={18} />
             </a>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm font-bold text-zinc-300">
