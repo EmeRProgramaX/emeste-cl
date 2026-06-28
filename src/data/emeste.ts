@@ -36,7 +36,7 @@ export const businessLines = [
     title: "Landing Express",
     href: "/#planes",
     description:
-      "Una página profesional enfocada en convertir visitas de Facebook o Instagram en consultas por WhatsApp.",
+      "Una página profesional enfocada en convertir visitas de campañas, redes sociales o Marketplace en consultas por WhatsApp.",
     cta: "Cotizar landing",
   },
   {
@@ -53,7 +53,7 @@ export const softwareServices = [
   {
     title: "Landing pages que llevan a WhatsApp",
     description:
-      "Páginas claras, rápidas y orientadas a captar clientes desde Facebook, Instagram o campañas pagadas.",
+      "Páginas claras, rápidas y orientadas a captar clientes desde redes sociales, Marketplace o campañas pagadas.",
   },
   {
     title: "Optimización de Instagram y WhatsApp",
@@ -84,7 +84,7 @@ export const commercialPackages = [
     name: "Landing Express",
     price: "Desde $149.000 CLP",
     description:
-      "Para negocios que quieren enviar tráfico desde Facebook o Instagram a una página clara y profesional.",
+      "Para negocios que quieren transformar visitas en consultas por WhatsApp con una página clara y profesional.",
     items: ["Página responsive", "Botón WhatsApp", "Textos comerciales", "Secciones de servicios", "Publicación online"],
   },
   {
@@ -115,7 +115,7 @@ export const latestUpdates = [
     tag: "Página de venta",
     title: "Landing Express",
     description:
-      "Página profesional para campañas de Facebook, Instagram y Marketplace con contacto directo a WhatsApp.",
+      "Página profesional para campañas, redes sociales y Marketplace con contacto directo a WhatsApp.",
     href: "/#planes",
   },
   {
