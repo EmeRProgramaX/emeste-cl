@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { navItems, siteConfig, buildWhatsappUrl } from "@/data/emeste";
+import { buildWhatsappUrl, navItems } from "@/data/emeste";
 
 export function SiteHeader() {
   const whatsappUrl = buildWhatsappUrl(
@@ -41,7 +41,7 @@ export function SiteHeader() {
           rel="noreferrer"
           className="attention-cta hidden shrink-0 rounded-full bg-pink-600 px-5 py-3 text-xs font-black uppercase tracking-[0.12em] text-white md:inline-flex"
         >
-          Asesoría gratis
+          WhatsApp gratis
         </a>
 
         <a
@@ -50,7 +50,7 @@ export function SiteHeader() {
           rel="noreferrer"
           className="attention-cta shrink-0 rounded-full bg-pink-600 px-4 py-2 text-[11px] font-black uppercase tracking-[0.1em] text-white md:hidden"
         >
-          Gratis
+          WhatsApp
         </a>
       </div>
 
