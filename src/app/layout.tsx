@@ -27,25 +27,20 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.emeste.cl"),
   title: {
-    default: "EMESTÉ.CL | Consigue más clientes por WhatsApp",
+    default: "EMESTÉ.CL | Software, Web y Automatización",
     template: "%s | EMESTÉ.CL",
   },
   description:
-    "EMESTÉ ayuda a negocios locales a captar más clientes por WhatsApp desde Facebook, Instagram y páginas web. Revisión gratis, Pack WhatsApp + Instagram, Landing Express y soluciones tecnológicas.",
+    "EMESTÉ ayuda a empresas a captar clientes, crear páginas web, implementar WhatsApp comercial, automatizar procesos y desarrollar software a medida.",
   keywords: [
     "EMESTÉ",
     "EMESTÉ.CL",
-    "Emerson Gil",
-    "clientes por WhatsApp",
-    "landing page Chile",
     "páginas web para negocios",
-    "Instagram para negocios",
-    "WhatsApp Business Chile",
-    "desarrollo web Chile",
     "software a medida Chile",
     "automatización de negocios",
+    "WhatsApp Business Chile",
+    "landing page Chile",
     "sistemas POS",
-    "soporte informático",
   ],
   authors: [{ name: "Emerson Gil" }],
   creator: "Emerson Gil",
@@ -54,9 +49,9 @@ export const metadata: Metadata = {
     canonical: "https://www.emeste.cl",
   },
   openGraph: {
-    title: "EMESTÉ.CL | Más clientes por WhatsApp para tu negocio",
+    title: "EMESTÉ.CL | Software, Web y Automatización",
     description:
-      "Revisamos tu negocio y te ayudamos a mejorar Instagram, WhatsApp y tu página web para recibir más consultas desde Facebook e Instagram.",
+      "Evaluamos tu empresa y recomendamos la solución correcta: página web, WhatsApp comercial, landing, software, POS o automatización.",
     url: "https://www.emeste.cl",
     siteName: "EMESTÉ.CL",
     images: [
@@ -64,7 +59,7 @@ export const metadata: Metadata = {
         url: "/logo-emeste.png",
         width: 1200,
         height: 1200,
-        alt: "EMESTÉ.CL - Clientes por WhatsApp y soluciones digitales",
+        alt: "EMESTÉ.CL - Software, web y automatización para empresas",
       },
     ],
     locale: "es_CL",
@@ -72,14 +67,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "EMESTÉ.CL | Clientes por WhatsApp",
+    title: "EMESTÉ.CL | Software, Web y Automatización",
     description:
-      "Landing pages, WhatsApp, Instagram, páginas web y soluciones tecnológicas para negocios que quieren vender más.",
+      "Páginas web, WhatsApp comercial, software a medida y automatización para empresas.",
     images: ["/logo-emeste.png"],
-  },
-  robots: {
-    index: true,
-    follow: true,
   },
 };
 
