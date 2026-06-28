@@ -9,8 +9,10 @@ export const siteConfig = {
   email: "emeste@emeste.cl",
   whatsapp: "56982328639",
   whatsappDisplay: "+56 9 8232 8639",
+  instagramUrl: "https://www.instagram.com/emeste.cl/",
   instagramEmesteUrl: "https://www.instagram.com/emeste.cl/",
-  calendarUrl: "https://calendar.app.google/KRBdfycwBGAwB3gT9",
+  calendarUrl: "https://wa.me/56982328639",
+  youtubeName: "EMESTÉ",
 };
 
 export const navItems = [
