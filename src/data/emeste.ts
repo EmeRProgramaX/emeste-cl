@@ -4,7 +4,7 @@ export const siteConfig = {
   legalName: "EMESTÉ Technologies",
   founder: "Emerson Gil",
   brandCredit: "Software creado por Emerson Gil",
-  tagline: "Tecnología premium para que tu negocio venda más y trabaje mejor.",
+  tagline: "Clientes por WhatsApp, páginas web y tecnología para vender más.",
   domain: "https://www.emeste.cl",
   email: "emeste@emeste.cl",
   whatsapp: "56982328639",
@@ -18,115 +18,114 @@ export const siteConfig = {
 export const navItems = [
   { label: "Inicio", href: "/#inicio" },
   { label: "Servicios", href: "/#servicios" },
+  { label: "Oferta", href: "/#planes" },
   { label: "Caso real", href: "/#caso-real" },
-  { label: "Planes", href: "/#planes" },
   { label: "Proceso", href: "/#proceso" },
-  { label: "Press Kit", href: "/presskit" },
   { label: "Contacto", href: "/#contacto" },
 ];
 
 export const businessLines = [
   {
-    eyebrow: "Línea comercial principal",
-    title: "Software y consultoría tecnológica",
-    href: "/software",
+    eyebrow: "Captación rápida",
+    title: "WhatsApp + Instagram",
+    href: "/#planes",
     description:
-      "Desarrollo web, sistemas a medida, automatizaciones, POS, ERP, integraciones e inteligencia artificial para negocios que necesitan crecer con orden.",
-    cta: "Cotizar solución",
+      "Optimizamos tu perfil, mensaje de contacto y respuestas para que más personas te escriban por WhatsApp.",
+    cta: "Quiero revisión",
   },
   {
-    eyebrow: "Marca artística",
-    title: "EMESTÉ DJ",
-    href: "/presskit",
+    eyebrow: "Página de venta",
+    title: "Landing Express",
+    href: "/#planes",
     description:
-      "Música, energía y conexión real para eventos privados, empresas, clubes y experiencias memorables.",
-    cta: "Ver press kit",
+      "Una página profesional enfocada en convertir visitas de Facebook o Instagram en consultas por WhatsApp.",
+    cta: "Cotizar landing",
   },
   {
-    eyebrow: "Crecimiento humano",
-    title: "EMESTÉ Mentorías",
-    href: "/mentorias",
+    eyebrow: "Operación y sistemas",
+    title: "Software / POS / Automatización",
+    href: "/#caso-real",
     description:
-      "Mentorías y contenido educativo sobre paz, amor, respeto, disciplina, propósito y conciencia para vivir mejor.",
-    cta: "Ver mentorías",
+      "Sistemas para ordenar ventas, reservas, caja, clientes, reportes y procesos internos del negocio.",
+    cta: "Ver solución",
   },
 ];
 
 export const softwareServices = [
   {
-    title: "Desarrollo web premium",
+    title: "Landing pages que llevan a WhatsApp",
     description:
-      "Sitios rápidos, modernos, responsivos y preparados para convertir visitas en clientes reales.",
+      "Páginas claras, rápidas y orientadas a captar clientes desde Facebook, Instagram o campañas pagadas.",
+  },
+  {
+    title: "Optimización de Instagram y WhatsApp",
+    description:
+      "Bio, enlace directo, mensajes automáticos, respuestas rápidas y textos comerciales para vender mejor.",
   },
   {
     title: "Software a medida",
     description:
-      "Sistemas para ventas, inventario, reservas, gestión interna, reportes y operación diaria.",
+      "Sistemas para ventas, inventario, reservas, reportes, clientes, paneles administrativos y operación diaria.",
   },
   {
     title: "Automatización inteligente",
     description:
       "Flujos conectados con WhatsApp, formularios, correos, reportes, agenda y procesos repetitivos.",
   },
-  {
-    title: "IA para empresas",
-    description:
-      "Asistentes, chatbots, análisis de información y herramientas internas para mejorar productividad.",
-  },
 ];
 
 export const commercialPackages = [
   {
+    name: "Pack WhatsApp + Instagram",
+    price: "Desde $49.000 CLP",
+    description:
+      "Para negocios que necesitan ordenar su perfil y recibir más consultas sin crear todavía una web completa.",
+    items: ["Bio optimizada", "Link directo a WhatsApp", "Mensaje automático", "Respuestas rápidas", "Textos para publicar"],
+  },
+  {
     name: "Landing Express",
-    price: "Cotización personalizada",
+    price: "Desde $149.000 CLP",
     description:
-      "Para negocios que necesitan presencia profesional inmediata y contacto directo.",
-    items: ["Diseño responsive", "WhatsApp e Instagram", "SEO base", "Publicación"],
+      "Para negocios que quieren enviar tráfico desde Facebook o Instagram a una página clara y profesional.",
+    items: ["Página responsive", "Botón WhatsApp", "Textos comerciales", "Secciones de servicios", "Publicación online"],
   },
   {
-    name: "Web Profesional",
-    price: "Cotización personalizada",
+    name: "Landing Pro",
+    price: "Desde $349.000 CLP",
     description:
-      "Para empresas que necesitan más confianza, secciones comerciales y mejor imagen.",
-    items: ["Secciones corporativas", "Diseño premium", "Formulario o agenda", "Optimización comercial"],
+      "Para empresas que necesitan más confianza, mejor presentación, estructura comercial y captación profesional.",
+    items: ["Diseño premium", "Más secciones", "Formulario o agenda", "SEO base", "Optimización comercial"],
   },
   {
-    name: "Software / Automatización",
-    price: "Cotización personalizada",
+    name: "Software / POS / Automatización",
+    price: "Cotización según alcance",
     description:
-      "Para negocios que necesitan ordenar procesos, ventas, reservas o información interna.",
-    items: ["Diagnóstico técnico", "Arquitectura escalable", "Panel o flujo interno", "Soporte inicial"],
-  },
-  {
-    name: "Automatización",
-    price: "Cotización personalizada",
-    description:
-      "Automatización de tareas repetitivas para ahorrar tiempo, responder mejor y ordenar el negocio.",
-    items: ["Flujos automáticos", "Alertas", "Integraciones", "Documentación"],
+      "Para negocios que necesitan ordenar ventas, procesos, inventario, reservas o información interna.",
+    items: ["Diagnóstico técnico", "Propuesta formal", "Sistema a medida", "Soporte inicial"],
   },
 ];
 
 export const latestUpdates = [
   {
-    tag: "Marca",
-    title: "EMESTÉ evoluciona como ecosistema",
+    tag: "Oferta rápida",
+    title: "Pack WhatsApp + Instagram",
     description:
-      "La marca crece hacia software, música y mentorías sin perder el foco comercial principal: crear soluciones tecnológicas rentables.",
-    href: "/actualizaciones",
+      "Servicio de entrada para negocios que necesitan captar más consultas desde redes sociales sin invertir de inmediato en un sistema grande.",
+    href: "/#planes",
   },
   {
-    tag: "DJ",
-    title: "Nuevo press kit artístico",
+    tag: "Página de venta",
+    title: "Landing Express",
     description:
-      "La línea EMESTÉ DJ tendrá una página dedicada para booking, biografía, sesiones, videos y material profesional.",
-    href: "/presskit",
+      "Página profesional para campañas de Facebook, Instagram y Marketplace con contacto directo a WhatsApp.",
+    href: "/#planes",
   },
   {
-    tag: "Mentorías",
-    title: "Emesté Mente Diferente",
+    tag: "Caso real",
+    title: "EMESTÉ POS",
     description:
-      "Nuevo canal educativo para compartir reflexiones, crecimiento personal, paz, amor, respeto y propósito.",
-    href: "/mentorias",
+      "Software real para negocio, con operación, caja, roles y control comercial.",
+    href: "/#caso-real",
   },
 ];
 
