@@ -9,10 +9,8 @@ export const siteConfig = {
   email: "emeste@emeste.cl",
   whatsapp: "56982328639",
   whatsappDisplay: "+56 9 8232 8639",
-  instagramUrl: "https://www.instagram.com/dj___emerson/",
   instagramEmesteUrl: "https://www.instagram.com/emeste.cl/",
   calendarUrl: "https://calendar.app.google/KRBdfycwBGAwB3gT9",
-  youtubeName: "Emesté Mente Diferente",
 };
 
 export const navItems = [
