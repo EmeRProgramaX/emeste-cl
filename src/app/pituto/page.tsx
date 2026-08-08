@@ -3,9 +3,9 @@ import {
   ArrowRight,
   Bot,
   CheckCircle2,
-  Instagram,
   Layers3,
   MessageCircle,
+  MonitorSmartphone,
   Sparkles,
   Target,
 } from "lucide-react";
@@ -95,7 +95,7 @@ export default function PitutoClubPage() {
               rel="noreferrer"
               className="inline-flex min-h-16 items-center justify-center gap-3 rounded-2xl border border-white/15 bg-white/[0.08] px-6 py-4 text-sm font-black uppercase tracking-[0.08em] text-white backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white/[0.13]"
             >
-              Seguir @emerson__gil <Instagram size={21} />
+              Seguir @emerson__gil <MonitorSmartphone size={21} />
             </a>
           </div>
 
