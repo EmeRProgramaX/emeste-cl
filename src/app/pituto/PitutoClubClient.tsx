@@ -5,13 +5,11 @@ import {
   ArrowRight,
   Bot,
   CheckCircle2,
-  Instagram,
   Layers3,
-  LockKeyhole,
   MessageCircle,
+  MonitorSmartphone,
   Sparkles,
   Target,
-  UnlockKeyhole,
 } from "lucide-react";
 import { buildWhatsappUrl } from "@/data/emeste";
 
@@ -45,10 +43,6 @@ export function PitutoClubClient() {
   const demoWhatsappUrl = buildWhatsappUrl(
     "Hola EMESTÉ 👋 Nos conocimos en Pituto Club. Quiero una DEMO para mi empresa."
   );
-
-  const openInstagram = () => {
-    setInstagramOpened(true);
-  };
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#050305] text-white">
@@ -97,10 +91,10 @@ export function PitutoClubClient() {
                 href={instagramUrl}
                 target="_blank"
                 rel="noreferrer"
-                onClick={openInstagram}
+                onClick={() => setInstagramOpened(true)}
                 className="inline-flex min-h-16 items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-pink-600 via-fuchsia-600 to-red-600 px-6 py-4 text-sm font-black uppercase tracking-[0.08em] text-white shadow-[0_0_45px_rgba(236,0,140,0.32)] transition hover:-translate-y-1"
               >
-                <Instagram size={21} /> Seguir @emerson__gil
+                <MonitorSmartphone size={21} /> Seguir @emerson__gil
               </a>
 
               <button
@@ -125,11 +119,11 @@ export function PitutoClubClient() {
                   rel="noreferrer"
                   className="inline-flex min-h-16 w-full items-center justify-center gap-3 rounded-2xl bg-emerald-500 px-6 py-4 text-sm font-black uppercase tracking-[0.08em] text-black transition hover:-translate-y-1 hover:bg-emerald-400"
                 >
-                  <UnlockKeyhole size={21} /> Solicitar mi demo por WhatsApp
+                  <MessageCircle size={21} /> Solicitar mi demo por WhatsApp
                 </a>
               ) : (
                 <div className="inline-flex min-h-16 w-full items-center justify-center gap-3 rounded-2xl border border-white/10 bg-black/35 px-6 py-4 text-sm font-black uppercase tracking-[0.08em] text-zinc-500">
-                  <LockKeyhole size={20} /> Demo bloqueada · completa los pasos 1 y 2
+                  <MonitorSmartphone size={20} /> Demo bloqueada · completa los pasos 1 y 2
                 </div>
               )}
             </div>
@@ -185,7 +179,7 @@ export function PitutoClubClient() {
             </a>
           ) : (
             <span className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-5 py-3 text-sm font-extrabold text-zinc-500">
-              <LockKeyhole size={17} /> Sigue primero
+              <MonitorSmartphone size={17} /> Sigue primero
             </span>
           )}
         </div>
