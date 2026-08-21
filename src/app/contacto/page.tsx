@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { CalendarCheck, Mail, MessageCircle, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { CalendarCheck, ClipboardList, Mail, MessageCircle, Sparkles } from "lucide-react";
 import { FloatingActions } from "@/components/FloatingActions";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -33,7 +34,7 @@ export default function ContactoPage() {
       </section>
 
       <section className="relative z-10 px-6 py-20">
-        <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
+        <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-4">
           <a href={whatsappUrl} target="_blank" rel="noreferrer" className="glass-pro glow-3d rounded-[2rem] p-8 text-center">
             <MessageCircle className="mx-auto mb-5 text-pink-300" size={44} />
             <h2 className="text-2xl font-black">WhatsApp</h2>
@@ -49,6 +50,11 @@ export default function ContactoPage() {
             <h2 className="text-2xl font-black">Correo</h2>
             <p className="mt-3 break-words text-zinc-300">{siteConfig.email}</p>
           </a>
+          <Link href="/formulario" className="glass-pro glow-3d rounded-[2rem] p-8 text-center">
+            <ClipboardList className="mx-auto mb-5 text-pink-300" size={44} />
+            <h2 className="text-2xl font-black">Formulario web</h2>
+            <p className="mt-3 text-zinc-300">Cuéntanos los detalles de tu proyecto.</p>
+          </Link>
         </div>
       </section>
 
