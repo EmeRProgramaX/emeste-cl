@@ -1,9 +1,19 @@
+const matrixMessages = [
+  "0101 EMESTÉ.CL 1100",
+  "1010 TECNOLOGÍA EMPRESARIAL 0110",
+  "0011 SOPORTE TÉCNICO 1001",
+  "1100 SOLUCIONES TECNOLÓGICAS 0101",
+  "0110 SOFTWARE A MEDIDA 1010",
+  "1001 PÁGINAS WEB 0011",
+  "0101 AUTOMATIZACIÓN 1100",
+];
+
 const columns = Array.from({ length: 42 }, (_, index) => ({
   id: index,
   left: `${(index * 97) % 100}%`,
   delay: `${(index % 12) * -0.85}s`,
   duration: `${8 + (index % 9)}s`,
-  text: index % 3 === 0 ? "0101 EMESTE 1100" : index % 3 === 1 ? "1010 CODEX 0110" : "0011 SYSTEM 1001",
+  text: matrixMessages[index % matrixMessages.length],
 }));
 
 export function MatrixBackground() {
