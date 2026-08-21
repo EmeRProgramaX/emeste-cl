@@ -21,6 +21,7 @@ export const navItems = [
   { label: "Oferta", href: "/#planes" },
   { label: "Caso real", href: "/#caso-real" },
   { label: "Proceso", href: "/#proceso" },
+  { label: "Formulario", href: "/formulario" },
   { label: "Contacto", href: "/#contacto" },
 ];
 
