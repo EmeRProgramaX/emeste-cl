@@ -232,6 +232,19 @@
     <div>EMESTÉ.CL · WhatsApp +56 9 8232 8639</div>
   </footer>
 
+  <script>
+    /* Celular: donde el logo 3D va a un lado (x distinto de 0) quedaría detrás del texto; lo dejo tenue, como fondo */
+    (function () {
+      try {
+        if (!window.matchMedia('(max-width: 640px)').matches) return;
+        document.querySelectorAll('[data-3d]').forEach(function (s) {
+          var d = JSON.parse(s.getAttribute('data-3d'));
+          var l = d.objetos && d.objetos.logo;
+          if (l && l.pos && l.pos[0] !== 0) { l.opacidad = 0.18; s.setAttribute('data-3d', JSON.stringify(d)); }
+        });
+      } catch (e) {}
+    })();
+  </script>
   <script src="/web3d/universo.js"></script>
   <script type="module" src="/web3d/motor-3d/motor3d.js"></script>
 </body>
