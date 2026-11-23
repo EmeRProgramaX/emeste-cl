@@ -131,6 +131,12 @@
     }
     .m3d-seccion--izq::before { left: -6vw; }
     .m3d-seccion--der::before { right: -6vw; }
+    /* Sin desborde horizontal: el velo se recorta en el borde de su sección (y en celular no se sale de la pantalla) */
+    .m3d-seccion { overflow-x: clip; }
+    @media (max-width: 640px) {
+      .m3d-seccion--izq::before { left: 0; }
+      .m3d-seccion--der::before { right: 0; }
+    }
     .m3d-seccion--hero::before, .m3d-seccion--abajo::before {
       content: ""; position: absolute; left: 50%; top: 56%; width: min(94vw, 1100px); height: 78%; transform: translate(-50%,-50%);
       z-index: -1; pointer-events: none;
