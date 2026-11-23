@@ -34,6 +34,7 @@
 
   <link rel="stylesheet" href="/web3d/motor-3d/motor3d.css">
   <style>
+    body::before { display: none; } /* sin luz ambiente dorada: fondo negro puro */
     :root {
       --m3d-fondo: #000000;
       --m3d-texto: #ffffff;
@@ -67,6 +68,21 @@
     .m3d-cabecera__marca img { height: 68px; max-height: 76px; max-width: 260px; filter: none; }
     .m3d-cabecera--compacta .m3d-cabecera__marca img { height: 56px; }
     @media (max-width: 640px) { .m3d-cabecera__marca img { height: 46px; } .m3d-cabecera--compacta .m3d-cabecera__marca img { height: 40px; } }
+    /* Barra superior blanca, siempre visible, para que el logo contraste */
+    .m3d-cabecera, .m3d-cabecera--compacta {
+      background: #ffffff;
+      -webkit-backdrop-filter: none; backdrop-filter: none;
+      box-shadow: 0 6px 22px rgba(0,0,0,.6);
+      padding-top: .3rem; padding-bottom: .3rem;
+    }
+    /* Barra delgada (~43 px): logo y botón más compactos */
+    .m3d-cabecera__marca img, .m3d-cabecera--compacta .m3d-cabecera__marca img { height: 32px; max-height: 32px; max-width: 160px; }
+    /* Logo de la barra sin filtros */
+    .m3d-cabecera__marca img, .m3d-cabecera--compacta .m3d-cabecera__marca img {
+      filter: none;
+    }
+    .m3d-cabecera .m3d-boton { padding: .35rem 1rem; font-size: .85rem; }
+    @media (max-width: 640px) { .m3d-cabecera__marca img, .m3d-cabecera--compacta .m3d-cabecera__marca img { height: 28px; max-height: 28px; } }
 
     /* Títulos en serif elegante, como la portada del ebook */
     .m3d-titulo, .m3d-titulo--xl { font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif; font-weight: 700; letter-spacing: -0.005em; font-size-adjust: 0.56; }
@@ -101,7 +117,7 @@
 
   <header class="m3d-cabecera">
     <a class="m3d-cabecera__marca" href="#inicio">
-      <img src="/web3d/assets/logo-recorte.png" alt="EMESTÉ.CL">
+      <img src="/web3d/assets/logo-barra.png" alt="EMESTÉ.CL">
     </a>
     <a class="m3d-boton" href="https://wa.me/56982328639?text=Hola%20EMEST%C3%89%2C%20quiero%20ver%20una%20demo%20de%20Control%20Total%20para%20mi%20negocio." target="_blank" rel="noopener">Pedir demo</a>
   </header>
@@ -121,7 +137,7 @@
     <!-- 1 · HERO -->
     <section id="inicio" class="m3d-seccion m3d-seccion--centro m3d-seccion--hero"
              data-3d='{"opacidad":0,"cam":[0,0,6.6],"mira":[0,0,0],"luz":1.0,
-                       "objetos":{"logo":{"pos":[0,1.2,0],"rot":[0,0,0],"escala":1.1,"opacidad":1},"ambiente":{"opacidad":0.6}}}'>
+                       "objetos":{"logo":{"pos":[0,1.0,0],"rot":[0,0,0],"escala":1.1,"opacidad":1},"ambiente":{"opacidad":0.6}}}'>
       <div class="m3d-hero-entra">
         <span class="m3d-etiqueta">EMESTÉ Control Total · Punto de venta, caja e inventario</span>
         <h1 class="m3d-titulo m3d-titulo--xl m3d-split">El sistema que vende, cobra y controla tu negocio aunque se caiga Internet</h1>
