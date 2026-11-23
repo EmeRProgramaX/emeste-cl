@@ -10,6 +10,7 @@
   document.body.prepend(lienzo);
   const ctx = lienzo.getContext('2d');
   const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const claro = document.documentElement.getAttribute('data-tema') === 'claro';
 
   let W = 0, H = 0, dpr = 1;
   let estrellas = [], nebulosas = [], fugaces = [];
@@ -23,7 +24,11 @@
     { prof: 0.45, tam: [0.7, 1.4], brillo: [0.4, 0.8], dens: 0.00009 },
     { prof: 0.9,  tam: [1.1, 2.1], brillo: [0.6, 1.0], dens: 0.00003 },
   ];
-  const TONOS = ['255,246,224', '255,246,224', '243,208,137', '255,236,200', '203,116,79'];
+  const TONOS = claro
+    ? ['176,125,34', '196,146,62', '160,112,30', '214,170,90', '205,110,95']   // dorados cálidos: se ven sobre blanco
+    : ['255,246,224', '255,246,224', '243,208,137', '255,236,200', '203,116,79'];
+  // Nebulosas del modo claro: auroras suaves (oro, durazno, lavanda, celeste) sobre el blanco
+  const AURORAS = ['243,208,137', '248,200,170', '214,198,242', '190,218,244', '243,208,137'];
 
   function crear() {
     estrellas = [];
@@ -39,7 +44,12 @@
       }
     }
     // Nebulosas: manchas grandes y suaves (azul profundo, violeta, magenta de la marca)
-    nebulosas = []; // fondo negro puro: sin nebulosas doradas
+    nebulosas = []; // modo oscuro: fondo negro puro, sin nebulosas
+    if (claro) {
+      for (let i = 0; i < 6; i++) {
+        nebulosas.push({ x: rnd(0.05, 0.95), y: rnd(0.05, 0.95), r: rnd(0.35, 0.6), c: AURORAS[i % AURORAS.length], a: rnd(0.22, 0.34), prof: rnd(0.2, 0.7) });
+      }
+    }
   }
 
   function medir() {
@@ -63,11 +73,12 @@
 
     // Fondo: del azul casi negro arriba al violeta oscuro abajo
     const g = ctx.createLinearGradient(0, 0, 0, H);
-    g.addColorStop(0, '#000000'); g.addColorStop(1, '#000000');
+    if (claro) { g.addColorStop(0, '#ffffff'); g.addColorStop(1, '#fbf8f1'); }
+    else { g.addColorStop(0, '#000000'); g.addColorStop(1, '#000000'); }
     ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
 
     // Nebulosas (con deriva lenta y parallax)
-    ctx.globalCompositeOperation = 'lighter';
+    ctx.globalCompositeOperation = claro ? 'source-over' : 'lighter';
     for (const n of nebulosas) {
       const px = n.x * W + mxS * 40 * n.prof * 4 + Math.sin(tt * 0.05 + n.x * 9) * 30;
       const py = n.y * H - scrollY * n.prof * 0.6 + myS * 30 * n.prof * 4 + Math.cos(tt * 0.04 + n.y * 7) * 30;
@@ -87,7 +98,7 @@
     lg.addColorStop(0, `rgba(243,208,137,${0.06 + resp * 0.02})`);
     lg.addColorStop(0.25, `rgba(211,165,95,${0.06 + resp * 0.02})`);
     lg.addColorStop(1, 'rgba(211,165,95,0)');
-    // (luz central dorada desactivada: fondo negro puro)
+    if (claro) { ctx.fillStyle = lg; ctx.fillRect(0, 0, W, H); } // modo oscuro: luz central desactivada (fondo negro puro)
 
     // Estrellas
     for (const s of estrellas) {
@@ -95,7 +106,7 @@
       const y = ((y0 % H) + H) % H;
       const x = s.x + mxS * 30 * s.prof;
       const parp = reducido ? 1 : 0.65 + 0.35 * Math.sin(tt * s.vel + s.fase);
-      const a = s.b * parp;
+      const a = claro ? Math.min(1, s.b * parp * 0.9) : s.b * parp;
       ctx.fillStyle = `rgba(${s.tono},${a})`;
       ctx.beginPath(); ctx.arc(x, y, s.r, 0, 6.2832); ctx.fill();
       if (s.r > 1.6) { // las más cercanas llevan un halo suave
@@ -110,7 +121,7 @@
       f.x += f.vx; f.y += f.vy; f.vida -= 0.014;
       if (f.vida <= 0) { fugaces.splice(i, 1); continue; }
       const lg2 = ctx.createLinearGradient(f.x, f.y, f.x - f.vx * 9, f.y - f.vy * 9);
-      lg2.addColorStop(0, `rgba(255,240,205,${f.vida})`); lg2.addColorStop(1, 'rgba(255,255,255,0)');
+      lg2.addColorStop(0, claro ? `rgba(196,146,62,${f.vida})` : `rgba(255,240,205,${f.vida})`); lg2.addColorStop(1, claro ? 'rgba(196,146,62,0)' : 'rgba(255,255,255,0)');
       ctx.strokeStyle = lg2; ctx.lineWidth = 1.6;
       ctx.beginPath(); ctx.moveTo(f.x, f.y); ctx.lineTo(f.x - f.vx * 9, f.y - f.vy * 9); ctx.stroke();
     }

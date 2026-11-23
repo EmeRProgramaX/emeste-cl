@@ -32,6 +32,7 @@
   }
   </script>
 
+  <script>(function(){var t='claro';try{if(localStorage.getItem('tema-emeste')==='oscuro')t='oscuro';}catch(e){}document.documentElement.setAttribute('data-tema',t);})();</script>
   <link rel="stylesheet" href="/web3d/motor-3d/motor3d.css">
   <style>
     body::before { display: none; } /* sin luz ambiente dorada: fondo negro puro */
@@ -84,6 +85,34 @@
     .m3d-cabecera .m3d-boton { padding: .35rem 1rem; font-size: .85rem; }
     @media (max-width: 640px) { .m3d-cabecera__marca img, .m3d-cabecera--compacta .m3d-cabecera__marca img { height: 28px; max-height: 28px; } }
 
+    /* ===== Apariencia: CLARO por defecto (fondo blanco) · botón para pasar a oscuro ===== */
+    .tema-grupo { display: flex; align-items: center; gap: .6rem; }
+    .tema-boton {
+      display: inline-flex; align-items: center; gap: .4rem; cursor: pointer;
+      font: 600 .8rem/1 var(--m3d-fuente); padding: .38rem .8rem; border-radius: 999px;
+      background: transparent; color: #1a1206; border: 1px solid rgba(26,18,6,.35);
+    }
+    .tema-boton:hover { border-color: #b07d22; }
+    html[data-tema="claro"] { --m3d-fondo: #ffffff; --m3d-texto: #1a1206; }
+    html[data-tema="claro"] body { background: #ffffff; color: #1a1206; }
+    html[data-tema="claro"] .m3d-cabecera, html[data-tema="claro"] .m3d-cabecera--compacta { box-shadow: 0 1px 0 rgba(26,18,6,.12), 0 6px 22px rgba(26,18,6,.08); }
+    html[data-tema="claro"] .m3d-titulo, html[data-tema="claro"] .m3d-titulo--xl { color: #1a1206; text-shadow: 0 0 22px rgba(255,255,255,.95), 0 0 3px rgba(255,255,255,.7); }
+    html[data-tema="claro"] .m3d-texto, html[data-tema="claro"] .m3d-texto--grande { color: #2b2415; opacity: 1; text-shadow: 0 0 16px rgba(255,255,255,.95), 0 0 2px rgba(255,255,255,.7); }
+    html[data-tema="claro"] .m3d-puntos strong { color: #1a1206; text-shadow: 0 0 14px rgba(255,255,255,.95); }
+    html[data-tema="claro"] .m3d-puntos span { color: #3a3120; text-shadow: 0 0 14px rgba(255,255,255,.95), 0 0 2px rgba(255,255,255,.7); }
+    html[data-tema="claro"] .m3d-etiqueta { color: #8a5f14; text-shadow: 0 0 12px rgba(255,255,255,.95); }
+    html[data-tema="claro"] .m3d-puntos li::before { color: #8a5f14; border-color: rgba(138,95,20,.5); }
+    html[data-tema="claro"] .m3d-boton--fantasma { color: #1a1206; border-color: rgba(26,18,6,.35); }
+    html[data-tema="claro"] .m3d-seccion--izq::before, html[data-tema="claro"] .m3d-seccion--der::before {
+      background: radial-gradient(ellipse at center, rgba(255,255,255,.7) 0%, rgba(255,255,255,.45) 50%, rgba(255,255,255,0) 78%);
+    }
+    html[data-tema="claro"] .m3d-seccion--hero::before, html[data-tema="claro"] .m3d-seccion--abajo::before {
+      background: radial-gradient(ellipse at center, rgba(255,255,255,.75) 0%, rgba(255,255,255,.5) 52%, rgba(255,255,255,0) 78%);
+    }
+    html[data-tema="claro"] .m3d-pie { background: #f6f3ec; color: #1a1206; opacity: 1; border-top-color: rgba(26,18,6,.12); }
+    html[data-tema="claro"] .m3d-intro { background: #ffffff; }
+    html[data-tema="claro"] .m3d-progreso { background: #b07d22; }
+
     /* Títulos en serif elegante, como la portada del ebook */
     .m3d-titulo, .m3d-titulo--xl { font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif; font-weight: 700; letter-spacing: -0.005em; font-size-adjust: 0.56; }
 
@@ -119,7 +148,10 @@
     <a class="m3d-cabecera__marca" href="#inicio">
       <img src="/web3d/assets/logo-barra.png" alt="EMESTÉ.CL">
     </a>
-    <a class="m3d-boton" href="https://wa.me/56982328639?text=Hola%20EMEST%C3%89%2C%20quiero%20ver%20una%20demo%20de%20Control%20Total%20para%20mi%20negocio." target="_blank" rel="noopener">Pedir demo</a>
+    <div class="tema-grupo">
+      <button type="button" id="tema-boton" class="tema-boton" aria-label="Cambiar apariencia">🌙 Oscuro</button>
+      <a class="m3d-boton" href="https://wa.me/56982328639?text=Hola%20EMEST%C3%89%2C%20quiero%20ver%20una%20demo%20de%20Control%20Total%20para%20mi%20negocio." target="_blank" rel="noopener">Pedir demo</a>
+    </div>
   </header>
 
   <canvas id="escena3d"></canvas>
@@ -243,6 +275,30 @@
           if (l && l.pos && l.pos[0] !== 0) { l.opacidad = 0.18; s.setAttribute('data-3d', JSON.stringify(d)); }
         });
       } catch (e) {}
+    })();
+  </script>
+  <script>
+    /* Apariencia: claro por defecto; se recuerda la elección. Debe correr antes del motor 3D. */
+    (function () {
+      var tema = 'claro';
+      try { if (localStorage.getItem('tema-emeste') === 'oscuro') tema = 'oscuro'; } catch (e) {}
+      document.documentElement.setAttribute('data-tema', tema);
+      var main = document.querySelector('[data-motor3d]');
+      var claro = tema === 'claro';
+      /* Fondo que usa el motor */
+      main.setAttribute('data-fondo', claro ? '#ffffff' : '#060401');
+      /* Logo 3D: sobre blanco se usa la versión con bordes rellenos (la recortada se desvanece sobre claro) */
+      if (claro) {
+        main.setAttribute('data-objetos', main.getAttribute('data-objetos').replace('assets/logo-recorte.png', 'assets/logo-barra.png'));
+        var intro = document.querySelector('.m3d-intro img'); if (intro) intro.src = '/web3d/assets/logo-barra.png';
+      }
+      var meta = document.querySelector('meta[name="theme-color"]'); if (meta) meta.content = claro ? '#ffffff' : '#060401';
+      var b = document.getElementById('tema-boton');
+      b.textContent = claro ? '🌙 Oscuro' : '☀️ Claro';
+      b.addEventListener('click', function () {
+        try { localStorage.setItem('tema-emeste', claro ? 'oscuro' : 'claro'); } catch (e) {}
+        location.reload();
+      });
     })();
   </script>
   <script src="/web3d/universo.js"></script>
