@@ -39,12 +39,7 @@
       }
     }
     // Nebulosas: manchas grandes y suaves (azul profundo, violeta, magenta de la marca)
-    nebulosas = [
-      { x: 0.18, y: 0.22, r: 0.55, c: '120,80,30',  a: 0.16, prof: 0.10 },
-      { x: 0.85, y: 0.30, r: 0.50, c: '203,116,79',  a: 0.09, prof: 0.18 },
-      { x: 0.55, y: 0.85, r: 0.60, c: '90,55,25',  a: 0.14, prof: 0.12 },
-      { x: 0.10, y: 0.80, r: 0.40, c: '182,142,81', a: 0.10, prof: 0.20 },
-    ];
+    nebulosas = []; // fondo negro puro: sin nebulosas doradas
   }
 
   function medir() {
@@ -68,7 +63,7 @@
 
     // Fondo: del azul casi negro arriba al violeta oscuro abajo
     const g = ctx.createLinearGradient(0, 0, 0, H);
-    g.addColorStop(0, '#060401'); g.addColorStop(0.55, '#0b0703'); g.addColorStop(1, '#1a0f07');
+    g.addColorStop(0, '#000000'); g.addColorStop(1, '#000000');
     ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
 
     // Nebulosas (con deriva lenta y parallax)
@@ -92,7 +87,7 @@
     lg.addColorStop(0, `rgba(243,208,137,${0.06 + resp * 0.02})`);
     lg.addColorStop(0.25, `rgba(211,165,95,${0.06 + resp * 0.02})`);
     lg.addColorStop(1, 'rgba(211,165,95,0)');
-    ctx.fillStyle = lg; ctx.fillRect(0, 0, W, H);
+    // (luz central dorada desactivada: fondo negro puro)
 
     // Estrellas
     for (const s of estrellas) {
